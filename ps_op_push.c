@@ -6,13 +6,13 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:44:59 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/10 14:10:58 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/10 14:41:58 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_operation.h"
 
-void	pa(s_stack *a, s_stack *b)
+void	pa(t_stack *a, t_stack *b)
 {
 	t_st_node	*node;
 
@@ -28,7 +28,7 @@ void	pa(s_stack *a, s_stack *b)
 	b->size--;
 }
 
-void	pb(s_stack *a, s_stack *b)
+void	pb(t_stack *a, t_stack *b)
 {
 	pa(b, a);
 }

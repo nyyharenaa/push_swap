@@ -6,13 +6,13 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:45:03 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/10 14:36:58 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/10 14:41:59 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_operation.h"
 
-void	ra(s_stack *a, s_stack *b)
+void	ra(t_stack *a, t_stack *b)
 {
 	t_st_node	*node;
 
@@ -26,12 +26,12 @@ void	ra(s_stack *a, s_stack *b)
 	(void)b;
 }
 
-void	rb(s_stack *a, s_stack *b)
+void	rb(t_stack *a, t_stack *b)
 {
 	ra(b, a);
 }
 
-void	rr(s_stack *a, s_stack *b)
+void	rr(t_stack *a, t_stack *b)
 {
 	ra(a, b);
 	rb(a, b);

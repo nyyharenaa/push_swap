@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:13:35 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/10 14:04:58 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/10 14:44:27 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,13 @@ t_st_node	*st_new(int val)
 	return (node);
 }
 
-t_st_node	*second_last(t_stack *stack)
+t_st_node	*st_second_last(t_stack stack)
 {
 	t_st_node	*current;
 
-	if (!stack)
+	if (stack.size < 2)
 		return (NULL);
-	if (stack->size < 2)
-		return (NULL);
-	current = stack->first;
+	current = stack.first;
 	while (current->next->next)
 		current = current->next;
 	return (current);

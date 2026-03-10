@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:30:04 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/10 14:37:26 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/10 14:45:22 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,21 @@ int	main(void)
 		node = st_new(++index);
 		st_add_back(&st_a, node);
 	}
+	ft_putstr("a: ");
 	print_stack(st_a);
 	ft_putchar('\n');
-	(&st_a, &st_b);
+	ft_putstr("b: ");
+	print_stack(st_b);
+	ft_putchar('\n');
+	pb(&st_a, &st_b);
+	ft_putstr("a: ");
 	print_stack(st_a);
+	ft_putchar('\n');
+	ft_putstr("b: ");
+	print_stack(st_b);
 	ft_putchar('\n');
 	st_clear(&st_a);
+	st_clear(&st_b);
 	return (0);
 }
 

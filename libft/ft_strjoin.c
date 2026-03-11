@@ -6,7 +6,7 @@
 /*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 12:39:55 by ny-handr          #+#    #+#             */
-/*   Updated: 2026/02/19 09:17:27 by ny-handr         ###   ########.fr       */
+/*   Updated: 2026/03/11 11:39:22 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,25 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*str;
-	size_t	i;
+	char	*res;
+	size_t	s1_len;
+	size_t	s2_len;
 
-	i = 0;
-	if (!s1 || !s2)
+	s1_len = 0;
+	s2_len = 0;
+	if (!s1 && !s2)
+		return (0);
+	if (s1)
+		s1_len = ft_strlen(s1);
+	if (s2)
+		s2_len = ft_strlen(s2);
+	res = malloc(sizeof(char) * (s2_len + s1_len + 1));
+	if (!res)
 		return (NULL);
-	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (str != NULL)
-	{
-		while (*s1)
-		{
-			str[i++] = *s1;
-			s1++;
-		}
-		while (*s2)
-		{
-			str[i++] = *s2;
-			s2++;
-		}
-		str[i] = '\0';
-	}
-	return (str);
+	if (s1)
+		ft_strlcpy(res, s1, s2_len + s1_len + 1);
+	if (s2)
+		ft_strlcpy(res + s1_len, s2, s2_len + 1);
+	res[s1_len + s2_len] = 0;
+	return (res);
 }

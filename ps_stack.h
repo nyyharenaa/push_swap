@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ps_stack.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
+/*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:51:13 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/10 14:44:03 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/11 12:09:27 by ny-handr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STACK_H
-# define STACK_H
+#ifndef PS_STACK_H
+# define PS_STACK_H
 
-#include <stdlib.h>
+# include <stdlib.h>
 
 typedef struct s_st_node
 {

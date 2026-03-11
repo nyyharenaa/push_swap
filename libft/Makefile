@@ -6,7 +6,7 @@
 #    By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/29 08:16:58 by ny-handr          #+#    #+#              #
-#    Updated: 2026/03/10 15:08:14 by ny-handr         ###   ########.fr        #
+#    Updated: 2026/03/11 11:40:30 by todina-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,7 @@ SRCS=	ft_atoi.c\
 		ft_lstclear.c\
 		ft_lstiter.c\
 		ft_lstmap.c\
+		gnl/gnl.c\
 
 OBJS=$(SRCS:.c=.o)
 
@@ -74,7 +75,7 @@ $(NAME): $(OBJS)
 	$(AR) $@ $^
 
 %.o : %.c
-	$(CC) $(CFLAGS) -c $^ -o $@
+	$(CC) $(CFLAGS) -c $^ -o $@ -I.
 
 clean:
 	$(MAKE) -C ./printf/ clean

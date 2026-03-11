@@ -6,7 +6,7 @@
 /*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 12:38:00 by ny-handr          #+#    #+#             */
-/*   Updated: 2026/03/10 15:07:14 by ny-handr         ###   ########.fr       */
+/*   Updated: 2026/03/11 11:41:20 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,17 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
+
+# define EOL_SPEC '\n'
+# define FD_MAX 1024
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+# if BUFFER_SIZE <= 0
+#  error "BUFFER_SIZE must be greater than 0"
+# endif
 
 typedef struct s_list
 {
@@ -73,5 +84,6 @@ int		ft_putnbr(int n);
 int		ft_putnbr_hex(unsigned long long n, int uppercase);
 int		ft_putptr(void *ptr);
 int		ft_putnbr_uns(unsigned int n);
+char	*get_next_line(int fd);
 
 #endif

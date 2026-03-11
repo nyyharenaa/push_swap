@@ -6,12 +6,12 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:53:06 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/10 14:09:46 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/11 07:57:12 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PS_OPEARATION_H
-# define PS_OPEARATION_H
+#ifndef PS_OPERATION_H
+# define PS_OPERATION_H
 
 # include "ps_stack.h"
 

@@ -6,13 +6,13 @@
 /*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:30:04 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/11 12:09:31 by ny-handr         ###   ########.fr       */
+/*   Updated: 2026/03/11 12:26:04 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	inti_stack(t_stack *st);
+static void	init_stack(t_stack *st);
 static void	*get_cmd_function(char *cmd);
 static void	handle_user_cmd(t_stack *st_a, t_stack *st_b);
 static void	print_stack_a_b(t_stack st_a, t_stack st_b);
@@ -26,8 +26,8 @@ int	main(int ac, char **av)
 	int			value;
 
 	index = 1;
-	inti_stack(&st_a);
-	inti_stack(&st_b);
+	init_stack(&st_a);
+	init_stack(&st_b);
 	while (index < ac)
 	{
 		value = ft_atoi(av[index]);
@@ -41,7 +41,7 @@ int	main(int ac, char **av)
 	return (0);
 }
 
-static void	inti_stack(t_stack *st)
+static void	init_stack(t_stack *st)
 {
 	st->first = NULL;
 	st->last = NULL;

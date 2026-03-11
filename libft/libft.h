@@ -6,7 +6,7 @@
 /*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 12:38:00 by ny-handr          #+#    #+#             */
-/*   Updated: 2026/03/11 11:41:20 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/11 12:23:15 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-int		ft_printf(const char *format, ...) __attribute__((format(printf, 1, 2)));
+int		ft_printf(const char *format, ...);
 int		ft_putchar(int c);
 int		ft_putstr(char *str);
 int		ft_putnbr(int n);

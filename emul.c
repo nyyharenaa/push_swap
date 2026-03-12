@@ -6,7 +6,7 @@
 /*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:30:04 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/12 10:49:43 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/12 15:50:36 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	print_stack_a_b(t_stack st_a, t_stack st_b)
 	t_st_node	*node;
 
 	node = st_a.first;
-	ft_printf("a: ");
+	ft_printf("a[%i]: ", st_a.size);
 	while (node)
 	{
 		ft_printf("%i", node->value);
@@ -63,7 +63,7 @@ static void	print_stack_a_b(t_stack st_a, t_stack st_b)
 	}
 	ft_printf("\n");
 	node = st_b.first;
-	ft_printf("b: ");
+	ft_printf("b[%i]: ", st_b.size);
 	while (node)
 	{
 		ft_printf("%i", node->value);

@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_algorithm.h                                     :+:      :+:    :+:   */
+/*   ps_al_presort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: todina-r <todina-r@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/12 10:56:21 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/12 20:46:58 by todina-r         ###   ########.fr       */
+/*   Created: 2026/03/12 20:39:16 by todina-r          #+#    #+#             */
+/*   Updated: 2026/03/12 20:46:34 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PS_ALGORITHM_H
-# define PS_ALGORITHM_H
+#include "ps_algorithm.h"
 
-# include <limits.h>
+void	st_to_value_index(t_stack st)
+{
+	t_st_node	*n1;
+	t_st_node	*n2;
+	int			value;
 
-# include "libft.h"
-# include "ps_stack.h"
-# include "ps_oplist.h"
-# include "ps_operation.h"
+	n1 = st.first;
+	while (n1)
+	{
+		value = 0;
+		n2 = n1->next;
+		while (n2)
+		{
+			if (n2->value < n1->value)
+				value++;
+			n2 = n2->next;
+		}
+		n1->value = value;
+		n1 = n1->next;
+	}
+}
 
-float	compute_disorder(t_stack st);
-void	st_to_value_index(t_stack st);
-t_list	*al_simple(t_stack *st_a, t_stack *st_b);
-t_list	*al_complex(t_stack *st_a, t_stack *st_b);
-
-#endif

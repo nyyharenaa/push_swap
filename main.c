@@ -6,7 +6,7 @@
 /*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:30:04 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/12 14:19:11 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/12 20:48:50 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int	main(int ac, char **av)
 		st_add_back(&st_a, node);
 		index++;
 	}
-	ft_printf("disorder metric: %i%%\n", (int)(100 * compute_disorder(st_a)));
-	oplist = al_simple(&st_a, &st_b);
+	st_to_value_index(st_a);
+	oplist = al_complex(&st_a, &st_b);
 	oplst_print(oplist);
 	oplst_clear(&oplist);
 	st_clear(&st_a);

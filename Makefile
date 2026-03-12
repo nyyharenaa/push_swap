@@ -11,7 +11,9 @@ INCLUDE = include libft
 
 PS_SRCS = main.c\
 		  ps_al_metric.c\
+		  ps_al_presort.c\
 		  ps_al_simple.c\
+		  ps_al_complex.c\
 		  ps_oplist.c\
 		  ps_op_push.c\
 		  ps_op_rev_rotate.c\
@@ -20,7 +22,6 @@ PS_SRCS = main.c\
 		  ps_stack.c
 
 EM_SRCS = emul.c\
-		  ps_al_simple.c\
 		  ps_oplist.c\
 		  ps_op_push.c\
 		  ps_op_rev_rotate.c\

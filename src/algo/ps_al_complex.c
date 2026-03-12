@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_al_complex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: todina-r <todina-r@student.42antananarivo  +#+  +:+       +#+        */
+/*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 19:16:31 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/12 21:41:24 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/12 23:35:57 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,3 @@ int	get_bit_count(int n)
 	}
 	return (count);
 }
-

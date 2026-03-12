@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_al_presort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: todina-r <todina-r@student.42antananarivo  +#+  +:+       +#+        */
+/*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 20:39:16 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/12 20:46:34 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/12 23:36:08 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,3 @@ void	st_to_value_index(t_stack st)
 		n1 = n1->next;
 	}
 }
-

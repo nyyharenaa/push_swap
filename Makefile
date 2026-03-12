@@ -44,12 +44,11 @@ $(LIBFT):
 	$(MAKE) -C libft libft.a
 
 clean:
-	$(MAKE) -C libft clean
+	$(MAKE) -C libft fclean
 
 fclean: clean
 	$(RM) $(NAME)
 	$(RM) $(EMUL)
-	$(MAKE) -C libft fclean
 
 re: fclean all
 

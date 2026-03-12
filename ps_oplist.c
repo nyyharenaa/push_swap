@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 09:40:35 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/12 09:52:29 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/12 10:10:18 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,3 @@ int	oplst_count(t_list *lst, char *op)
 	}
 	return (count);
 }
-

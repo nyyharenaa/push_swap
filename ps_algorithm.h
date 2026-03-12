@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ps_algorithm.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
+/*   By: todina-r <todina-r@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/10 12:45:49 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/12 10:58:22 by todina-r         ###   ########.fr       */
+/*   Created: 2026/03/12 10:56:21 by todina-r          #+#    #+#             */
+/*   Updated: 2026/03/12 10:58:35 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PS_ALGORITHM_H
+# define PS_ALGORITHM_H
 
 # include "libft.h"
-
 # include "ps_stack.h"
 # include "ps_oplist.h"
 # include "ps_operation.h"
-# include "ps_algorithm.h"
+
+t_list	*al_simple(t_stack *st_a, t_stack *st_b);
 
 #endif

@@ -1,46 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_op_rotate.c                                     :+:      :+:    :+:   */
+/*   ps_op_swap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/10 12:45:03 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/12 21:43:16 by todina-r         ###   ########.fr       */
+/*   Created: 2026/03/10 12:44:23 by todina-r          #+#    #+#             */
+/*   Updated: 2026/03/12 22:48:46 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_operation.h"
 
-void	_rotate(t_stack *a, t_stack *b)
+void	_swap(t_stack *a, t_stack *b)
 {
 	t_st_node	*node;
 
 	if (a->size < 2)
 		return ;
-	node = a->first;
-	a->first = node->next;
-	a->last->next = node;
-	node->next = NULL;
-	a->last = node;
+	node = a->first->next;
+	a->first->next = node->next;
+	node->next = a->first;
+	a->first = node;
 	(void)b;
 }
 
-void	ra(t_stack *a, t_stack *b, t_list **oplst)
+void	sa(t_stack *a, t_stack *b, t_list **oplst)
 {
-	_rotate(a, b);
-	oplst_add(oplst, "ra");
+	_swap(a, b);
+	if (oplst)
+		oplst_add(oplst, "sa");
 }
 
-void	rb(t_stack *a, t_stack *b, t_list **oplst)
+void	sb(t_stack *a, t_stack *b, t_list **oplst)
 {
-	_rotate(b, a);
-	oplst_add(oplst, "rb");
+	_swap(a, b);
+	if (oplst)
+		oplst_add(oplst, "sa");
 }
 
-void	rr(t_stack *a, t_stack *b, t_list **oplst)
+void	ss(t_stack *a, t_stack *b, t_list **oplst)
 {
-	_rotate(a, b);
-	_rotate(b, a);
-	oplst_add(oplst, "rb");
+	_swap(a, b);
+	_swap(b, a);
+	if (oplst)
+		oplst_add(oplst, "ss");
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   emul.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
+/*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:30:04 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/12 15:50:36 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/12 22:49:18 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,27 +77,27 @@ static void	print_stack_a_b(t_stack st_a, t_stack st_b)
 static void	execute_cmd_function(char *cmd, t_stack *st_a, t_stack *st_b)
 {
 	if (ft_strncmp(cmd, "sa", 2) == 0)
-		sa(st_a, st_b);
+		sa(st_a, st_b, NULL);
 	else if (ft_strncmp(cmd, "sb", 2) == 0)
-		sb(st_a, st_b);
+		sb(st_a, st_b, NULL);
 	else if (ft_strncmp(cmd, "ss", 2) == 0)
-		ss(st_a, st_b);
+		ss(st_a, st_b, NULL);
 	else if (ft_strncmp(cmd, "pa", 2) == 0)
-		pa(st_a, st_b);
+		pa(st_a, st_b, NULL);
 	else if (ft_strncmp(cmd, "pb", 2) == 0)
-		pb(st_a, st_b);
+		pb(st_a, st_b, NULL);
 	else if (ft_strncmp(cmd, "rra", 3) == 0)
-		rra(st_a, st_b);
+		rra(st_a, st_b, NULL);
 	else if (ft_strncmp(cmd, "rrb", 3) == 0)
-		rrb(st_a, st_b);
+		rrb(st_a, st_b, NULL);
 	else if (ft_strncmp(cmd, "rrr", 3) == 0)
-		rrr(st_a, st_b);
+		rrr(st_a, st_b, NULL);
 	else if (ft_strncmp(cmd, "ra", 2) == 0)
-		ra(st_a, st_b);
+		ra(st_a, st_b, NULL);
 	else if (ft_strncmp(cmd, "rb", 2) == 0)
-		rb(st_a, st_b);
+		rb(st_a, st_b, NULL);
 	else if (ft_strncmp(cmd, "rr", 2) == 0)
-		rr(st_a, st_b);
+		rr(st_a, st_b, NULL);
 }
 
 static void	handle_user_cmd(t_stack *st_a, t_stack *st_b)

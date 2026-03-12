@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:45:15 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/12 21:42:44 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/12 22:48:56 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,21 @@ static void	_rev_rorate(t_stack *a, t_stack *b)
 void	rra(t_stack *a, t_stack *b, t_list **oplst)
 {
 	_rev_rorate(a, b);
-	oplst_add(oplst, "rra");
+	if (oplst)
+		oplst_add(oplst, "rra");
 }
 
 void	rrb(t_stack *a, t_stack *b, t_list **oplst)
 {
 	_rev_rorate(b, a);
-	oplst_add(oplst, "rrb");
+	if (oplst)
+		oplst_add(oplst, "rrb");
 }
 
 void	rrr(t_stack *a, t_stack *b, t_list **oplst)
 {
 	_rev_rorate(a, b);
 	_rev_rorate(b, a);
-	oplst_add(oplst, "rrr");
+	if (oplst)
+		oplst_add(oplst, "rrr");
 }

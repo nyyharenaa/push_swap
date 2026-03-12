@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:44:59 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/12 21:55:52 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/12 22:48:29 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,13 @@ static void	_push(t_stack *a, t_stack *b)
 void	pa(t_stack *a, t_stack *b, t_list **oplst)
 {
 	_push(a, b);
-	oplst_add(oplst, "pa");
+	if (oplst)
+		oplst_add(oplst, "pa");
 }
 
 void	pb(t_stack *a, t_stack *b, t_list **oplst)
 {
 	_push(b, a);
-	oplst_add(oplst, "pb");
+	if (oplst)
+		oplst_add(oplst, "pb");
 }

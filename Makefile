@@ -4,30 +4,30 @@ EMUL = emul
 CC = cc
 AR = ar rcs
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 SOURCE = source
 INCLUDE = include libft
 
-PS_SRCS = main.c\
-		  ps_al_metric.c\
-		  ps_al_presort.c\
-		  ps_al_simple.c\
-		  ps_al_complex.c\
-		  ps_oplist.c\
-		  ps_op_push.c\
-		  ps_op_rev_rotate.c\
-		  ps_op_rotate.c\
-		  ps_op_swap.c\
-		  ps_stack.c
+PS_SRCS = src/main.c\
+		  src/algo/ps_al_metric.c\
+		  src/algo/ps_al_presort.c\
+		  src/algo/ps_al_simple.c\
+		  src/algo/ps_al_complex.c\
+		  src/oper/ps_op_push.c\
+		  src/oper/ps_op_rev_rotate.c\
+		  src/oper/ps_op_rotate.c\
+		  src/oper/ps_op_swap.c\
+		  src/ps_oplist.c\
+		  src/ps_stack.c
 
-EM_SRCS = emul.c\
-		  ps_oplist.c\
-		  ps_op_push.c\
-		  ps_op_rev_rotate.c\
-		  ps_op_rotate.c\
-		  ps_op_swap.c\
-		  ps_stack.c
+EM_SRCS = src/emul.c\
+		  src/oper/ps_op_push.c\
+		  src/oper/ps_op_rev_rotate.c\
+		  src/oper/ps_op_rotate.c\
+		  src/oper/ps_op_swap.c\
+		  src/ps_oplist.c\
+		  src/ps_stack.c
 
 LIBFT = libft/libft.a
 

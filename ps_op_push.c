@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_op_push.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
+/*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:44:59 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/11 07:59:55 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/12 18:08:08 by ny-handr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	pa(t_stack *a, t_stack *b)
 	if (a->last == NULL)
 		a->last = a->first;
 	b->first = node;
+	if (node == NULL)
+		b->last = NULL;
 	a->size++;
 	b->size--;
 }

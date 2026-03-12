@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_algorithm.h                                     :+:      :+:    :+:   */
+/*   ps_al_metric.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: todina-r <todina-r@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/12 10:56:21 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/12 14:17:20 by todina-r         ###   ########.fr       */
+/*   Created: 2026/03/12 14:08:36 by todina-r          #+#    #+#             */
+/*   Updated: 2026/03/12 14:29:27 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PS_ALGORITHM_H
-# define PS_ALGORITHM_H
+#include "ps_stack.h"
 
-# include "libft.h"
-# include "ps_stack.h"
-# include "ps_oplist.h"
-# include "ps_operation.h"
+float	compute_disorder(t_stack st)
+{
+	t_st_node	*n1;
+	t_st_node	*n2;
+	int			mistake;
+	int			pair;
 
-float	compute_disorder(t_stack st);
-t_list	*al_simple(t_stack *st_a, t_stack *st_b);
-
-#endif
+	pair = 0;
+	mistake = 0;
+	n1 = st.first;
+	while (n1)
+	{
+		n2 = n1->next;
+		while (n2)
+		{
+			pair++;
+			if (n1->value > n2->value)
+				mistake++;
+			n2 = n2->next;
+		}
+		n1 = n1->next;
+	}
+	if (pair)
+		return ((float)mistake / pair);
+	return (0);
+}

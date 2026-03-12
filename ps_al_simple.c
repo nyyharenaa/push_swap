@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 08:54:33 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/12 11:33:21 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/12 14:28:38 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ t_list	*al_simple(t_stack *st_a, t_stack *st_b)
 	int		count;
 
 	oplist = NULL;
-	if (!st_a || !st_b)
-		return (NULL);
-	while (st_a->first)
+	while (st_a && st_b && st_a->first)
 	{
 		count = find_max(st_a);
 		index = 0;
@@ -36,7 +34,7 @@ t_list	*al_simple(t_stack *st_a, t_stack *st_b)
 		pb(st_a, st_b);
 		oplst_add(&oplist, "pb");
 	}
-	while (st_b->first)
+	while (st_a && st_b && st_b->first)
 	{
 		pa(st_a, st_b);
 		oplst_add(&oplist, "pa");

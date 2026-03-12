@@ -10,6 +10,7 @@ SOURCE = source
 INCLUDE = include libft
 
 PS_SRCS = main.c\
+		  ps_al_metric.c\
 		  ps_al_simple.c\
 		  ps_oplist.c\
 		  ps_op_push.c\

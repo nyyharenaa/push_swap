@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 08:54:33 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/12 14:57:17 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/12 21:41:30 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,25 @@ static int	find_min(t_stack *st);
 
 t_list	*al_simple(t_stack *st_a, t_stack *st_b)
 {
-	t_list	*oplist;
+	t_list	*oplst;
 	int		index;
 	int		count;
 
-	oplist = NULL;
+	oplst = NULL;
 	while (st_a && st_b && st_a->first)
 	{
 		count = find_min(st_a);
 		index = 0;
 		while (index < count)
 		{
-			ra(st_a, st_b);
-			oplst_add(&oplist, "ra");
+			ra(st_a, st_b, &oplst);
 			index++;
 		}
-		pb(st_a, st_b);
-		oplst_add(&oplist, "pb");
+		pb(st_a, st_b, &oplst);
 	}
 	while (st_a && st_b && st_b->first)
-	{
-		pa(st_a, st_b);
-		oplst_add(&oplist, "pa");
-	}
-	return (oplist);
+		pa(st_a, st_b, &oplst);
+	return (oplst);
 }
 
 static int	find_min(t_stack *st)

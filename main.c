@@ -6,7 +6,7 @@
 /*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:30:04 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/12 20:48:50 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/12 21:40:51 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int ac, char **av)
 	t_stack		st_b;
 	t_st_node	*node;
 	int			index;
-	t_list		*oplist;
+	t_list		*oplst;
 
 	index = 1;
 	init_stack(&st_a);
@@ -32,9 +32,9 @@ int	main(int ac, char **av)
 		index++;
 	}
 	st_to_value_index(st_a);
-	oplist = al_complex(&st_a, &st_b);
-	oplst_print(oplist);
-	oplst_clear(&oplist);
+	oplst = al_complex(&st_a, &st_b);
+	oplst_print(oplst);
+	oplst_clear(&oplst);
 	st_clear(&st_a);
 	st_clear(&st_b);
 	return (0);

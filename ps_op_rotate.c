@@ -6,13 +6,13 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:45:03 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/11 08:00:37 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/12 21:43:16 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_operation.h"
 
-void	ra(t_stack *a, t_stack *b)
+void	_rotate(t_stack *a, t_stack *b)
 {
 	t_st_node	*node;
 
@@ -26,13 +26,21 @@ void	ra(t_stack *a, t_stack *b)
 	(void)b;
 }
 
-void	rb(t_stack *a, t_stack *b)
+void	ra(t_stack *a, t_stack *b, t_list **oplst)
 {
-	ra(b, a);
+	_rotate(a, b);
+	oplst_add(oplst, "ra");
 }
 
-void	rr(t_stack *a, t_stack *b)
+void	rb(t_stack *a, t_stack *b, t_list **oplst)
 {
-	ra(a, b);
-	rb(a, b);
+	_rotate(b, a);
+	oplst_add(oplst, "rb");
+}
+
+void	rr(t_stack *a, t_stack *b, t_list **oplst)
+{
+	_rotate(a, b);
+	_rotate(b, a);
+	oplst_add(oplst, "rb");
 }

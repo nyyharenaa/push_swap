@@ -6,13 +6,13 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:44:23 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/11 08:00:26 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/12 21:38:50 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_operation.h"
 
-void	sa(t_stack *a, t_stack *b)
+void	_swap(t_stack *a, t_stack *b)
 {
 	t_st_node	*node;
 
@@ -25,13 +25,21 @@ void	sa(t_stack *a, t_stack *b)
 	(void)b;
 }
 
-void	sb(t_stack *a, t_stack *b)
+void	sa(t_stack *a, t_stack *b, t_list **oplst)
 {
-	sa(b, a);
+	_swap(a, b);
+	oplst_add(oplst, "sa");
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	sb(t_stack *a, t_stack *b, t_list **oplst)
 {
-	sa(a, b);
-	sb(a, b);
+	_swap(a, b);
+	oplst_add(oplst, "sa");
+}
+
+void	ss(t_stack *a, t_stack *b, t_list **oplst)
+{
+	_swap(a, b);
+	_swap(b, a);
+	oplst_add(oplst, "ss");
 }

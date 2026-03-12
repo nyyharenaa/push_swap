@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 19:16:31 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/12 20:29:45 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/12 21:41:24 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ int	get_max_val(t_stack st_a);
 
 t_list	*al_complex(t_stack *st_a, t_stack *st_b)
 {
-	t_list		*oplist;
+	t_list		*oplst;
 	t_st_node	*node;
 	int			b_count;
 
-	oplist = NULL;
+	oplst = NULL;
 	b_count = get_bit_count(get_max_val(*st_a));
 	while (--b_count)
 	{
@@ -29,23 +29,18 @@ t_list	*al_complex(t_stack *st_a, t_stack *st_b)
 		while (node)
 		{
 			if ((node->value & (1 << b_count)) == 0)
-			{
-				oplst_add(&oplist, "pb");
-				pb(st_a, st_b);
-			}
+				pb(st_a, st_b, &oplst);
 			node = node->next;
-			oplst_add(&oplist, "ra");
-			ra(st_a, st_b);
+			ra(st_a, st_b, &oplst);
 		}
 	}
 	node = st_a->first;
 	while (node)
 	{
-		pa(st_a, st_b);
-		oplst_add(&oplist, "pa");
+		pa(st_a, st_b, &oplst);
 		node = node->next;
 	}
-	return (oplist);
+	return (oplst);
 }
 
 int	get_max_val(t_stack st_a)

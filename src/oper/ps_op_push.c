@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ps_op_push.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
+/*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:44:59 by todina-r          #+#    #+#             */
+<<<<<<< HEAD:src/oper/ps_op_push.c
 /*   Updated: 2026/03/12 22:48:29 by todina-r         ###   ########.fr       */
+=======
+/*   Updated: 2026/03/12 18:08:08 by ny-handr         ###   ########.fr       */
+>>>>>>> ed0330a3bb4e2d1d69a5b8076b324224fb3af32c:ps_op_push.c
 /*                                                                            */
 /* ************************************************************************** */
 

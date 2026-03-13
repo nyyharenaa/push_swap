@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
+/*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:30:04 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/12 21:40:51 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/13 04:41:05 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	main(int ac, char **av)
 	}
 	st_to_value_index(st_a);
 	oplst = al_complex(&st_a, &st_b);
+	optim_oplst(oplst);
 	oplst_print(oplst);
 	oplst_clear(&oplst);
 	st_clear(&st_a);

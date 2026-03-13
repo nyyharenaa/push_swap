@@ -6,7 +6,7 @@
 /*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:30:04 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/13 02:57:25 by ny-handr         ###   ########.fr       */
+/*   Updated: 2026/03/13 09:46:27 by ny-handr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void		init_stack(t_stack *st);
 static t_list	*get_av(char **av);
 static void		check_av(t_list *av);
+static int	ft_isnumber(const char *str);
 
 int	main(int ac, char **av)
 {
@@ -23,17 +24,21 @@ int	main(int ac, char **av)
 	t_st_node	*node;
 	t_list		*lst_av;
 	t_list		*oplist;
+	t_list		*temp;
 
+	(void)ac;
 	lst_av = get_av(av);
-	check_av(&lst_av);
+	temp = lst_av;
+	check_av(lst_av);
+	init_stack(&st_a);
+	init_stack(&st_b);
 	while (lst_av && ft_strncmp(lst_av->content, "--", 2))
 	{
 		node = st_new(ft_atoi(lst_av->content));
 		st_add_back(&st_a, node);
 		lst_av = lst_av->next;
 	}
-	init_stack(&st_a);
-	init_stack(&st_b);
+	ft_lstclear(&temp, free);
 	ft_printf("disorder metric: %i%%\n", (int)(100 * compute_disorder(st_a)));
 	oplist = al_simple(&st_a, &st_b);
 	oplst_print(oplist);
@@ -82,12 +87,12 @@ static void	check_av(t_list *av)
 		exit(1);
 	while (av)
 	{
-		if (!ft_isdigit(*(char *)av->content)
-			&& !(ft_strncmp(av->content, "--adaptive", 10) == 0
-				|| ft_strncmp(av->content, "--simple", 8) == 0
-				|| ft_strncmp(av->content, "--medium", 8) == 0
-				|| ft_strncmp(av->content, "--complex", 9) == 0
-				|| ft_strncmp(av->content, "--bench", 7) == 0))
+		if (!ft_isnumber((char *)av->content)
+			&& !(ft_strncmp(av->content, "--adaptive", ft_strlen(av->content)) == 0
+				|| ft_strncmp(av->content, "--simple", ft_strlen(av->content)) == 0
+				|| ft_strncmp(av->content, "--medium", ft_strlen(av->content)) == 0
+				|| ft_strncmp(av->content, "--complex", ft_strlen(av->content)) == 0
+				|| ft_strncmp(av->content, "--bench", ft_strlen(av->content)) == 0))
 		{
 			ft_printf("Error\n");
 			ft_lstclear(&node, free);
@@ -95,4 +100,22 @@ static void	check_av(t_list *av)
 		}
 		av = av->next;
 	}
+}
+
+static int	ft_isnumber(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (!str[i])
+		return (0);
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }

@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
+/*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:30:04 by todina-r          #+#    #+#             */
-<<<<<<< HEAD:main.c
-/*   Updated: 2026/03/13 09:46:27 by ny-handr         ###   ########.fr       */
-=======
-/*   Updated: 2026/03/13 04:44:10 by todina-r         ###   ########.fr       */
->>>>>>> acdd9bd0156d65b3e53f431a4c4af09c78eff4f9:src/main.c
+/*   Updated: 2026/03/13 10:25:20 by ny-handr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,27 +39,11 @@ int	main(int ac, char **av)
 		st_add_back(&st_a, node);
 		lst_av = lst_av->next;
 	}
-<<<<<<< HEAD:main.c
 	ft_lstclear(&temp, free);
 	ft_printf("disorder metric: %i%%\n", (int)(100 * compute_disorder(st_a)));
 	oplist = al_simple(&st_a, &st_b);
 	oplst_print(oplist);
 	oplst_clear(&oplist);
-=======
-	init_stack(&st_a);
-	init_stack(&st_b);
-	while (index < ac)
-	{
-		node = st_new(ft_atoi(av[index]));
-		st_add_back(&st_a, node);
-		index++;
-	}
-	st_to_value_index(st_a);
-	oplst = al_complex(&st_a, &st_b);
-	optim_oplst(oplst);
-	oplst_print(oplst);
-	oplst_clear(&oplst);
->>>>>>> acdd9bd0156d65b3e53f431a4c4af09c78eff4f9:src/main.c
 	st_clear(&st_a);
 	st_clear(&st_b);
 	return (0);

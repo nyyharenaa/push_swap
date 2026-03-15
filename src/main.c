@@ -6,7 +6,7 @@
 /*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:30:04 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/13 10:25:20 by ny-handr         ###   ########.fr       */
+/*   Updated: 2026/03/15 21:06:27 by ny-handr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	main(int ac, char **av)
 	t_stack		st_a;
 	t_stack		st_b;
 	t_st_node	*node;
-	t_list		*oplst;
 	t_list		*lst_av;
 	t_list		*oplist;
 	t_list		*temp;

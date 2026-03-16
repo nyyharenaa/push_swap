@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
+/*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:30:04 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/16 07:29:21 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/16 15:07:55 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@ static int		ft_isnumber(const char *str);
 int	main(int ac, char **av)
 {
 	t_stack		st_a;
+	t_stack		old_st_a;
 	t_stack		st_b;
 	t_st_node	*node;
 	t_list		*lst_av;
-	t_list		*oplist;
+	t_list		*oplst;
 	t_list		*temp;
 
 	(void)ac;
@@ -40,10 +41,13 @@ int	main(int ac, char **av)
 		lst_av = lst_av->next;
 	}
 	ft_lstclear(&temp, free);
-	ft_printf("disorder metric: %i%%\n", (int)(100 * compute_disorder(st_a)));
-	oplist = al_simple(&st_a, &st_b);
-	oplst_print(oplist);
-	oplst_clear(&oplist);
+	old_st_a = st_a;
+	st_a = st_to_value_index(st_a);
+	st_clear(&old_st_a);
+	oplst = al_medium(&st_a, &st_b);
+	optim_oplst(oplst);
+	oplst_print(oplst);
+	oplst_clear(&oplst);
 	st_clear(&st_a);
 	st_clear(&st_b);
 	return (0);
@@ -123,3 +127,4 @@ static int	ft_isnumber(const char *str)
 	}
 	return (1);
 }
+

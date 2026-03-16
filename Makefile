@@ -14,6 +14,7 @@ PS_SRCS = src/main.c\
 		  src/algo/ps_al_presort.c\
 		  src/algo/ps_al_postsort.c\
 		  src/algo/ps_al_simple.c\
+		  src/algo/ps_al_medium.c\
 		  src/algo/ps_al_complex.c\
 		  src/oper/ps_op_push.c\
 		  src/oper/ps_op_rev_rotate.c\

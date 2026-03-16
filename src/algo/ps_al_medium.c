@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 19:16:31 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/16 14:46:00 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/16 19:46:48 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,53 @@
 
 static int	ft_sqrt(int n);
 static int	find_max(t_stack st);
+static void	fill_bucket(t_stack *st_a, t_stack *st_b, t_list **oplst);
+static void	sort_b_to_a(t_stack *st_a, t_stack *st_b, t_list **oplst);
 
 t_list	*al_medium(t_stack *st_a, t_stack *st_b)
 {
 	t_list	*oplst;
+
+	oplst = NULL;
+	fill_bucket(st_a, st_b, &oplst);
+	sort_b_to_a(st_a, st_b, &oplst);
+	return (oplst);
+}
+
+static void	fill_bucket(t_stack *st_a, t_stack *st_b, t_list **oplst)
+{
 	int		bucket_count;
 	int		bucket_size;
 	int		bucket_index;
 	int		bucket_slot;
 	int		max;
-	int		node_index;
 
-	oplst = NULL;
+	bucket_index = 0;
 	bucket_count = ft_sqrt(st_a->size);
 	bucket_size = st_a->size / bucket_count;
 	bucket_slot = bucket_size;
-	bucket_index = 0;
 	while (st_a->first)
 	{
 		max = (bucket_index + 1) * bucket_size;
 		if (st_a->first->value < max)
 		{
-			pb(st_a, st_b, &oplst);
+			pb(st_a, st_b, oplst);
 			bucket_slot--;
 		}
 		else
-			ra(st_a, st_b, &oplst);
+			ra(st_a, st_b, oplst);
 		if (bucket_slot == 0)
 		{
 			bucket_slot = bucket_size;
 			bucket_index++;
 		}
 	}
+}
+
+static void	sort_b_to_a(t_stack *st_a, t_stack *st_b, t_list **oplst)
+{
+	int		node_index;
+
 	while (st_b->first)
 	{
 		node_index = find_max(*st_b);
@@ -53,14 +68,13 @@ t_list	*al_medium(t_stack *st_a, t_stack *st_b)
 		{
 			node_index = st_b->size - node_index;
 			while (node_index-- > 0)
-				rrb(st_a, st_b, &oplst);
+				rrb(st_a, st_b, oplst);
 		}
 		else
 			while (node_index-- > 0)
-				rb(st_a, st_b, &oplst);
-		pa(st_a, st_b, &oplst);
+				rb(st_a, st_b, oplst);
+		pa(st_a, st_b, oplst);
 	}
-	return (oplst);
 }
 
 static int	ft_sqrt(int n)

@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   parse_av.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/10 12:45:49 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/16 08:59:12 by ny-handr         ###   ########.fr       */
+/*   Created: 2026/03/16 08:51:19 by ny-handr          #+#    #+#             */
+/*   Updated: 2026/03/16 11:41:35 by ny-handr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PARSE_AV_H
+# define PARSE_AV_H
 
 # include "libft.h"
 
-# include "ps_stack.h"
-# include "ps_oplist.h"
-# include "ps_operation.h"
-# include "ps_algorithm.h"
-# include "parse_av.h"
+t_list	*get_av(char **av);
+void	check_av(t_list *av);
+void	check_flag(t_list *av);
 
 #endif

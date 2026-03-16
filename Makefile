@@ -6,7 +6,6 @@ AR = ar rcs
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -g
 
-SOURCE = source
 INCLUDE = include libft
 
 PS_SRCS = src/main.c\
@@ -20,7 +19,8 @@ PS_SRCS = src/main.c\
 		  src/oper/ps_op_rotate.c\
 		  src/oper/ps_op_swap.c\
 		  src/ps_oplist.c\
-		  src/ps_stack.c
+		  src/ps_stack.c\
+		  src/parse_av.c
 
 EM_SRCS = src/emul.c\
 		  src/oper/ps_op_push.c\

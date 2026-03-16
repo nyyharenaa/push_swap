@@ -6,7 +6,7 @@
 /*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:30:04 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/15 21:06:27 by ny-handr         ###   ########.fr       */
+/*   Updated: 2026/03/16 07:29:21 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void		init_stack(t_stack *st);
 static t_list	*get_av(char **av);
-static void		check_av(t_list *av);
-static int	ft_isnumber(const char *str);
+static int		check_av(t_list *av);
+static int		ft_isnumber(const char *str);
 
 int	main(int ac, char **av)
 {
@@ -29,7 +29,8 @@ int	main(int ac, char **av)
 	(void)ac;
 	lst_av = get_av(av);
 	temp = lst_av;
-	check_av(lst_av);
+	if (!check_av(lst_av))
+		return (1);
 	init_stack(&st_a);
 	init_stack(&st_b);
 	while (lst_av && ft_strncmp(lst_av->content, "--", 2))
@@ -78,28 +79,31 @@ static t_list	*get_av(char **av)
 	return (l_av);
 }
 
-static void	check_av(t_list *av)
+static int	check_av(t_list *av)
 {
 	t_list	*node;
+	int		stop;
 
+	stop = 0;
 	node = av;
 	if (!av)
-		exit(1);
-	while (av)
+		return (0);
+	while (av && !stop)
 	{
 		if (!ft_isnumber((char *)av->content)
-			&& !(ft_strncmp(av->content, "--adaptive", ft_strlen(av->content)) == 0
-				|| ft_strncmp(av->content, "--simple", ft_strlen(av->content)) == 0
-				|| ft_strncmp(av->content, "--medium", ft_strlen(av->content)) == 0
-				|| ft_strncmp(av->content, "--complex", ft_strlen(av->content)) == 0
-				|| ft_strncmp(av->content, "--bench", ft_strlen(av->content)) == 0))
+			&& !(ft_strncmp(av->content, "--adaptive", ft_strlen(av->content) + 1) == 0
+				|| ft_strncmp(av->content, "--simple", ft_strlen(av->content) + 1) == 0
+				|| ft_strncmp(av->content, "--medium", ft_strlen(av->content) + 1) == 0
+				|| ft_strncmp(av->content, "--complex", ft_strlen(av->content) + 1) == 0
+				|| ft_strncmp(av->content, "--bench", ft_strlen(av->content) + 1) == 0))
 		{
 			ft_printf("Error\n");
 			ft_lstclear(&node, free);
-			exit(1);
+			stop = 1;
 		}
 		av = av->next;
 	}
+	return (!stop);
 }
 
 static int	ft_isnumber(const char *str)

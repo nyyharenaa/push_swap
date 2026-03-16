@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 19:16:31 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/16 19:46:48 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/16 19:51:57 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,13 @@ t_list	*al_medium(t_stack *st_a, t_stack *st_b)
 
 static void	fill_bucket(t_stack *st_a, t_stack *st_b, t_list **oplst)
 {
-	int		bucket_count;
 	int		bucket_size;
 	int		bucket_index;
 	int		bucket_slot;
 	int		max;
 
 	bucket_index = 0;
-	bucket_count = ft_sqrt(st_a->size);
-	bucket_size = st_a->size / bucket_count;
+	bucket_size = st_a->size / ft_sqrt(st_a->size);
 	bucket_slot = bucket_size;
 	while (st_a->first)
 	{
@@ -115,4 +113,3 @@ static int	find_max(t_stack st)
 	}
 	return (res);
 }
-

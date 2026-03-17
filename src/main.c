@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:30:04 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/16 15:07:55 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/17 05:47:36 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	main(int ac, char **av)
 	t_list		*lst_av;
 	t_list		*oplst;
 	t_list		*temp;
+	float		metric;
 
 	(void)ac;
 	lst_av = get_av(av);
@@ -43,10 +44,12 @@ int	main(int ac, char **av)
 	ft_lstclear(&temp, free);
 	old_st_a = st_a;
 	st_a = st_to_value_index(st_a);
+	metric = compute_disorder(st_a);
 	st_clear(&old_st_a);
 	oplst = al_medium(&st_a, &st_b);
 	optim_oplst(oplst);
 	oplst_print(oplst);
+	ps_bench(metric, MEDIUM, NSQRTN, oplst);
 	oplst_clear(&oplst);
 	st_clear(&st_a);
 	st_clear(&st_b);

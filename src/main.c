@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:30:04 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/17 05:47:36 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/17 05:53:36 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,4 +130,3 @@ static int	ft_isnumber(const char *str)
 	}
 	return (1);
 }
-

@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_av.h                                         :+:      :+:    :+:   */
+/*   parse_utils.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/17 09:51:19 by ny-handr          #+#    #+#             */
-/*   Updated: 2026/03/17 11:13:44 by ny-handr         ###   ########.fr       */
+/*   Created: 2026/03/17 11:06:47 by ny-handr          #+#    #+#             */
+/*   Updated: 2026/03/17 12:09:24 by ny-handr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSE_AV_H
-# define PARSE_AV_H
+#ifndef PARSE_UTILS_H
+# define PARSE_UTILS_H
 
 # include "push_swap.h"
 
-void	fill_stack_int(t_stack *stack, t_list *lst);
+int		ft_isnumber(const char *str);
+t_list	*ft_lstchr(t_list *lst, void *content);
 
 #endif

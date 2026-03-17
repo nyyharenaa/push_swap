@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_av.h                                         :+:      :+:    :+:   */
+/*   check_av.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/17 09:51:19 by ny-handr          #+#    #+#             */
-/*   Updated: 2026/03/17 11:13:44 by ny-handr         ###   ########.fr       */
+/*   Created: 2026/03/16 08:51:19 by ny-handr          #+#    #+#             */
+/*   Updated: 2026/03/17 11:56:02 by ny-handr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSE_AV_H
-# define PARSE_AV_H
+#ifndef CHECK_AV_H
+# define CHECK_AV_H
 
 # include "push_swap.h"
 
-void	fill_stack_int(t_stack *stack, t_list *lst);
+t_list	*get_av(char **av);
+void	check_av(t_list *av);
+t_list	*check_flag(t_list *av);
 
 #endif

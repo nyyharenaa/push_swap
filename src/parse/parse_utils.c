@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_av.c                                         :+:      :+:    :+:   */
+/*   parse_utilis.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/17 09:48:55 by ny-handr          #+#    #+#             */
-/*   Updated: 2026/03/17 11:40:00 by ny-handr         ###   ########.fr       */
+/*   Created: 2026/03/17 11:05:03 by ny-handr          #+#    #+#             */
+/*   Updated: 2026/03/17 11:05:57 by ny-handr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	fill_stack_int(t_stack *stack, t_list *lst)
+int	ft_isnumber(const char *str)
 {
-	t_list		*temp;
-	t_st_node	*node;
+	size_t	i;
 
-	temp = lst;
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (!str[i])
+		return (0);
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+t_list	*ft_lstchr(t_list *lst, void *content)
+{
 	while (lst)
 	{
-		if (ft_isdigit(*(char *)lst->content))
-		{
-			node = st_new(ft_atoi((char *)lst->content));
-			st_add_back(stack, node);
-		}
+		if (ft_strncmp(lst->content, content, ft_strlen(content) + 1) == 0)
+			return (lst);
 		lst = lst->next;
 	}
-	ft_lstclear(&temp, free);
+	return (NULL);
 }

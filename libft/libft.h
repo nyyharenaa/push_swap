@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 14:35:05 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/24 08:27:12 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/24 09:31:03 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ int		ft_print_char_l(int fd, va_list list);
 int		ft_print_str_l(int fd, va_list list);
 int		ft_print_ptr_l(int fd, va_list list);
 int		ft_print_int_l(int fd, va_list list);
+int		ft_print_dbl_l(int fd, va_list list);
 int		ft_print_uint_l(int fd, va_list list);
 int		ft_print_lhex_l(int fd, va_list list);
 int		ft_print_uhex_l(int fd, va_list list);

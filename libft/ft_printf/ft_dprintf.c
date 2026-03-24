@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 11:08:57 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/24 08:40:29 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/24 09:30:28 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ static int	handle_conv(int fd, char c, va_list list)
 		return (ft_print_lhex_l(fd, list));
 	else if (c == 'X')
 		return (ft_print_uhex_l(fd, list));
+	else if (c == 'f')
+		return (ft_print_dbl_l(fd, list));
 	else if (c == '%')
 		return (ft_putchar_fd('%', fd));
 	return (-1);

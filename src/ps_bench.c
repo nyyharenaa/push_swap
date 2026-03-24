@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 22:38:29 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/24 08:54:51 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/24 09:28:40 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@ static const char	*get_strategy_detail(int strgt, int cplxt);
 
 void	ps_bench(float metric, int strgt, int cplxt, t_list *oplst)
 {
-	ft_dprintf(2, "[bench] disorder: %i.%i%%\n",
-		(int)(metric * 100),
-		((int)(metric * 10000) % 100));
+	ft_dprintf(2, "[bench] disorder: %f%%\n",
+		metric * 100);
 	ft_dprintf(2, "[bench] strategy:\t%s\n",
 		get_strategy_detail(strgt, cplxt));
 	ft_dprintf(2, "[bench] total_ops:\t%i\n",

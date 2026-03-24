@@ -56,6 +56,7 @@ SRCS = ft_isalnum.c\
 	ft_printf/ft_print_str_l.c\
 	ft_printf/ft_print_ptr_l.c\
 	ft_printf/ft_print_int_l.c\
+	ft_printf/ft_print_dbl_l.c\
 	ft_printf/ft_print_uint_l.c\
 	ft_printf/ft_print_lhex_l.c\
 	ft_printf/ft_print_uhex_l.c\

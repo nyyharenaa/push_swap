@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:30:04 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/24 20:11:08 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/24 20:14:56 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	main(int ac, char **av)
 	oplst_print(oplst);
 	if (opt_get_bench(optflag))
 		ps_bench(metric, optflag, oplst);
+	oplst_clear(&oplst);
 	st_clear(&st_a);
 	st_clear(&st_b);
 	return (0);
@@ -51,8 +52,8 @@ static void	parse_stack(char **av, t_stack *st, int *optflag)
 	flaglst = extract_flag(arglst);
 	fill_stack(st, arglst);
 	*optflag = parse_flag(flaglst);
-	ft_lstclear(&arglst, NULL);
-	ft_lstclear(&flaglst, NULL);
+	ft_lstclear(&arglst, free);
+	ft_lstclear(&flaglst, free);
 	sttmp = normalize(*st);
 	st_clear(st);
 	*st = sttmp;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
+/*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:45:49 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/12 10:58:22 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/17 11:14:30 by ny-handr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,8 @@
 # include "ps_oplist.h"
 # include "ps_operation.h"
 # include "ps_algorithm.h"
+# include "parse_utils.h"
+# include "check_av.h"
+# include "parse_av.h"
 
 #endif

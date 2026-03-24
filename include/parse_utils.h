@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   parse_utils.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/18 11:05:46 by ny-handr          #+#    #+#             */
-/*   Updated: 2026/03/17 11:43:36 by ny-handr         ###   ########.fr       */
+/*   Created: 2026/03/17 11:06:47 by ny-handr          #+#    #+#             */
+/*   Updated: 2026/03/24 10:38:49 by ny-handr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef PARSE_UTILS_H
+# define PARSE_UTILS_H
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
-{
-	t_list	*last;
+# include "push_swap.h"
 
-	if (!lst || !new)
-		return ;
-	if (*lst == NULL)
-	{
-		*lst = new;
-		return ;
-	}
-	last = ft_lstlast(*lst);
-	last->next = new;
-}
+int		ft_isnumber(const char *str);
+t_list	*ft_lstchr(t_list *lst, void *content);
+void	check_dup(t_list *av);
+void	free_tab(char **tab);
+
+#endif

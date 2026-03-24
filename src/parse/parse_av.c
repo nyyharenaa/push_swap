@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   parse_av.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/18 11:05:46 by ny-handr          #+#    #+#             */
-/*   Updated: 2026/03/17 11:43:36 by ny-handr         ###   ########.fr       */
+/*   Created: 2026/03/17 09:48:55 by ny-handr          #+#    #+#             */
+/*   Updated: 2026/03/24 10:51:02 by ny-handr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	fill_stack_int(t_stack *stack, t_list *lst)
 {
-	t_list	*last;
+	t_list		*temp;
+	t_st_node	*node;
+	char		*str;
 
-	if (!lst || !new)
-		return ;
-	if (*lst == NULL)
+	temp = lst;
+	while (lst)
 	{
-		*lst = new;
-		return ;
+		if (ft_isnumber((char *)lst->content))
+		{
+			str = ft_strdup((char *)lst->content);
+			node = st_new(ft_atoi(str));
+			st_add_back(stack, node);
+			free(str);
+		}
+		lst = lst->next;
 	}
-	last = ft_lstlast(*lst);
-	last->next = new;
 }

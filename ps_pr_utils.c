@@ -1,34 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_utils.c                                      :+:      :+:    :+:   */
+/*   ps_pr_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
+/*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 11:05:03 by ny-handr          #+#    #+#             */
-/*   Updated: 2026/03/24 12:23:20 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/24 16:55:22 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	ft_isnumber(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	if (!str[i])
-		return (0);
-	while (str[i])
-	{
-		if (!ft_isdigit(str[i]))
-			return (0);
-		i++;
-	}
-	return (1);
-}
+#include "ps_parser.h"
 
 t_list	*ft_lstchr(t_list *lst, void *content)
 {
@@ -39,19 +21,6 @@ t_list	*ft_lstchr(t_list *lst, void *content)
 		lst = lst->next;
 	}
 	return (NULL);
-}
-
-void	free_tab(char **tab)
-{
-	size_t	i;
-
-	i = 0;
-	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
 }
 
 void	check_dup(t_list *av)

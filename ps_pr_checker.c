@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_av.c                                         :+:      :+:    :+:   */
+/*   ps_pr_checker.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
+/*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 08:50:17 by ny-handr          #+#    #+#             */
-/*   Updated: 2026/03/24 12:23:01 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/24 16:56:11 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ps_parser.h"
 
 t_list	*get_av(char **av)
 {
@@ -28,8 +28,8 @@ t_list	*get_av(char **av)
 		str_av = ft_split(av[i], ' ');
 		j = 0;
 		while (str_av[j])
-			ft_lstadd_back(&l_av, ft_lstnew(ft_strdup(str_av[j++])));
-		free_tab(str_av);
+			ft_lstadd_back(&l_av, ft_lstnew(str_av[j++]));
+		free(str_av);
 		i++;
 	}
 	return (l_av);
@@ -44,7 +44,7 @@ void	check_av(t_list *av)
 		exit(1);
 	while (av)
 	{
-		if (!ft_isnumber((char *)av->content)
+		if (!isnumber((char *)av->content)
 			&& !(ft_strncmp(av->content, "--adaptive", 11) == 0
 				|| ft_strncmp(av->content, "--simple", 9) == 0
 				|| ft_strncmp(av->content, "--medium", 9) == 0

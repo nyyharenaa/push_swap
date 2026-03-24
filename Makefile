@@ -20,12 +20,12 @@ PS_SRCS = main.c\
 		  ps_op_rev_rotate.c\
 		  ps_op_rotate.c\
 		  ps_op_swap.c\
-		  ps_pr_parse_utils.c\
-		  ps_pr_check_av.c\
-		  ps_pr_parse_av.c\
+		  ps_pr_utils.c\
+		  ps_pr_checker.c\
 		  ps_oplist.c\
 		  ps_stack.c\
 		  ps_bench.c\
+		  ps_utils.c\
 
 LIBFT = libft/libft.a
 

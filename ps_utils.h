@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_parser.h                                        :+:      :+:    :+:   */
+/*   ps_utils.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/17 11:06:47 by ny-handr          #+#    #+#             */
-/*   Updated: 2026/03/24 16:56:15 by todina-r         ###   ########.fr       */
+/*   Created: 2026/03/24 14:31:35 by todina-r          #+#    #+#             */
+/*   Updated: 2026/03/24 16:55:41 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PS_PARSER_H
-# define PS_PARSER_H
+#ifndef PS_UTILS_H
+# define PS_UTILS_H
 
-# include "libft.h"
-# include "ps_stack.h"
-# include "ps_utils.h"
+#include "libft.h"
+#include "ps_stack.h"
 
-t_list	*ft_lstchr(t_list *lst, void *content);
-void	check_dup(t_list *av);
-void	free_tab(char **tab);
-
-t_list	*get_av(char **av);
-void	check_av(t_list *av);
-t_list	*check_flag(t_list *av);
+t_stack	create_stack();
+int		isnumber(const char *str);
+void	fill_stack(t_stack *stack, t_list *lst);
 
 #endif

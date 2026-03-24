@@ -9,23 +9,23 @@ CFLAGS = -Wall -Wextra -Werror -g
 
 INCLUDE = include libft
 
-PS_SRCS = src/main.c\
-		  src/algo/ps_al_metric.c\
-		  src/algo/ps_al_presort.c\
-		  src/algo/ps_al_postsort.c\
-		  src/algo/ps_al_simple.c\
-		  src/algo/ps_al_medium.c\
-		  src/algo/ps_al_complex.c\
-		  src/oper/ps_op_push.c\
-		  src/oper/ps_op_rev_rotate.c\
-		  src/oper/ps_op_rotate.c\
-		  src/oper/ps_op_swap.c\
-		  src/parse/ps_pr_parse_utils.c\
-		  src/parse/ps_pr_check_av.c\
-		  src/parse/ps_pr_parse_av.c\
-		  src/ps_oplist.c\
-		  src/ps_stack.c\
-		  src/ps_bench.c\
+PS_SRCS = main.c\
+		  ps_al_metric.c\
+		  ps_al_presort.c\
+		  ps_al_postsort.c\
+		  ps_al_simple.c\
+		  ps_al_medium.c\
+		  ps_al_complex.c\
+		  ps_op_push.c\
+		  ps_op_rev_rotate.c\
+		  ps_op_rotate.c\
+		  ps_op_swap.c\
+		  ps_pr_parse_utils.c\
+		  ps_pr_check_av.c\
+		  ps_pr_parse_av.c\
+		  ps_oplist.c\
+		  ps_stack.c\
+		  ps_bench.c\
 
 LIBFT = libft/libft.a
 

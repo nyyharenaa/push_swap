@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:30:04 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/24 20:16:12 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/24 20:34:16 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ static void	pick_algo(int *optflag, float metric)
 	*optflag = *optflag & ~(CMPLX_SQRN | CMPLX_NSQRTN | CMPLX_NLOGN);
 	if (metric < 0.2)
 		*optflag = *optflag | CMPLX_SQRN;
-	else if (metric < 0.8)
+	else if (metric < 0.5)
 		*optflag = *optflag | CMPLX_NSQRTN;
 	else
 		*optflag = *optflag | CMPLX_NLOGN;

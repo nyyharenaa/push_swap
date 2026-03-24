@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:30:04 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/17 05:53:36 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/24 08:36:25 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ static int	check_av(t_list *av)
 				|| ft_strncmp(av->content, "--complex", ft_strlen(av->content) + 1) == 0
 				|| ft_strncmp(av->content, "--bench", ft_strlen(av->content) + 1) == 0))
 		{
-			ft_printf("Error\n");
+			ft_dprintf(1, "Error\n");
 			ft_lstclear(&node, free);
 			stop = 1;
 		}

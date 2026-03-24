@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putptr.c                                        :+:      :+:    :+:   */
+/*   ft_print_uint_l.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
+/*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/24 12:23:56 by ny-handr          #+#    #+#             */
-/*   Updated: 2026/02/28 12:42:54 by ny-handr         ###   ########.fr       */
+/*   Created: 2026/02/03 14:18:12 by todina-r          #+#    #+#             */
+/*   Updated: 2026/03/24 08:22:48 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putptr(void *ptr)
+int	ft_print_uint_l(int fd, va_list list)
 {
-	ssize_t	count;
+	unsigned int	unb;
 
-	count = 0;
-	if (!ptr)
-	{
-		count += ft_putstr("(nil)");
-		return ((int)count);
-	}
-	count += ft_putstr("0x");
-	count += ft_putnbr_hex((unsigned long long)ptr, 0);
-	return ((int)count);
+	unb = va_arg(list, unsigned int);
+	return (ft_putunb_fd(unb, fd));
 }

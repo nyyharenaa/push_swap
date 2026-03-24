@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_bench.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: todina-r <todina-r@student.42antananarivo  +#+  +:+       +#+        */
+/*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 22:38:29 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/17 05:53:24 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/24 08:45:42 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@ static const char	*get_strategy_detail(int strgt, int cplxt);
 
 void	ps_bench(float metric, int strgt, int cplxt, t_list *oplst)
 {
-	ft_printf("[bench] disorder: %i.%i%%\n",
+	ft_dprintf(2, "[bench] disorder: %i.%i%%\n",
 		(int)(metric * 100),
 		((int)(metric * 10000) % 100));
-	ft_printf("[bench] strategy: %s\n",
+	ft_dprintf(2, "[bench] strategy:\t%s\n",
 		get_strategy_detail(strgt, cplxt));
-	ft_printf("[bench] total_ops: %i\n",
+	ft_dprintf(2, "[bench] total_ops:\t%i\n",
 		ft_lstsize(oplst));
-	ft_printf("[bench] sa: %i sb: %i pa: %i pb: %i\n",
+	ft_dprintf(2, "[bench] sa:\t%i\tsb:\t%i\tpa:\t%i\tpb:\t%i\n",
 		oplst_count(oplst, "sa"), oplst_count(oplst, "sb"),
 		oplst_count(oplst, "pa"), oplst_count(oplst, "pb"));
-	ft_printf("[bench] ra: %i rb: %i rr: %i rra: %i rrb: %i rrr: %i\n",
+	ft_dprintf(2, "[bench] ra:\t%i\trb:\t%i\trr:\t%i\trra:\t%i\trrb:\t%i\trrr:\t%i\n",
 		oplst_count(oplst, "ra"), oplst_count(oplst, "rb"),
 		oplst_count(oplst, "rr"), oplst_count(oplst, "rra"),
 		oplst_count(oplst, "rrb"), oplst_count(oplst, "rrr"));

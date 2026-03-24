@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_print_str_l.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
+/*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/24 12:20:38 by ny-handr          #+#    #+#             */
-/*   Updated: 2026/03/02 09:49:10 by ny-handr         ###   ########.fr       */
+/*   Created: 2026/02/03 14:01:50 by todina-r          #+#    #+#             */
+/*   Updated: 2026/03/24 08:22:33 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putstr(char *str)
+int	ft_print_str_l(int fd, va_list list)
 {
-	ssize_t	count;
+	char	*str;
 
-	count = 0;
-	if (!str)
-		return (ft_putstr("(null)"));
-	while (*str)
-	{
-		count += ft_putchar(*str);
-		str++;
-	}
-	return ((int)count);
+	str = va_arg(list, char *);
+	if (str == 0)
+		str = "(null)";
+	return (ft_putstr_fd(str, fd));
 }

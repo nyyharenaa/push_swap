@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_uns.c                                    :+:      :+:    :+:   */
+/*   ft_print_uhex_l.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
+/*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/24 12:21:15 by ny-handr          #+#    #+#             */
-/*   Updated: 2026/02/28 12:25:13 by ny-handr         ###   ########.fr       */
+/*   Created: 2026/02/03 13:40:34 by todina-r          #+#    #+#             */
+/*   Updated: 2026/03/24 08:22:41 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putnbr_uns(unsigned int n)
+int	ft_print_uhex_l(int fd, va_list list)
 {
-	ssize_t	count;
+	unsigned int	nb;
+	char			*base;
 
-	count = 0;
-	if (n >= 10)
-		count += ft_putnbr_uns(n / 10);
-	count += ft_putchar(n % 10 + '0');
-	return ((int)count);
+	nb = va_arg(list, unsigned int);
+	base = "0123456789ABCDEF";
+	return (ft_putunb_base_fd(nb, base, fd));
 }

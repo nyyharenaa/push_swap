@@ -6,13 +6,13 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 14:28:22 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/24 19:15:08 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/24 20:17:44 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_utils.h"
 
-t_stack	create_stack()
+t_stack	create_stack(void)
 {
 	t_stack	st;
 
@@ -68,7 +68,7 @@ void	fill_stack(t_stack *stack, t_list *lst)
 	}
 }
 
-int		parse_flag(t_list *flaglst)
+int	parse_flag(t_list *flaglst)
 {
 	int	optflag;
 

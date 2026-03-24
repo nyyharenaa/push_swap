@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:30:04 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/24 20:14:56 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/24 20:16:12 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static t_list	*execute_algo(t_stack *st_a, t_stack *st_b, int optflag)
 	return (oplst);
 }
 
-static void		pick_algo(int *optflag, float metric)
+static void	pick_algo(int *optflag, float metric)
 {
 	if (opt_get_strategy(*optflag) != STRGT_ADAPTIVE)
 		return ;

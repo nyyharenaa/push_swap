@@ -20,9 +20,9 @@ PS_SRCS = src/main.c\
 		  src/oper/ps_op_rev_rotate.c\
 		  src/oper/ps_op_rotate.c\
 		  src/oper/ps_op_swap.c\
-		  src/parse/parse_utils.c\
-		  src/parse/check_av.c\
-		  src/parse/parse_av.c\
+		  src/parse/ps_pr_parse_utils.c\
+		  src/parse/ps_pr_check_av.c\
+		  src/parse/ps_pr_parse_av.c\
 		  src/ps_oplist.c\
 		  src/ps_stack.c\
 		  src/ps_bench.c\

@@ -6,7 +6,7 @@
 /*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 11:05:03 by ny-handr          #+#    #+#             */
-/*   Updated: 2026/03/24 10:39:42 by ny-handr         ###   ########.fr       */
+/*   Updated: 2026/03/24 12:23:20 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	check_dup(t_list *av)
 			len = ft_strlen(av->content);
 			if (!ft_strncmp(av->content, temp->content, len + 1))
 			{
-				ft_printf("Error\n");
+				ft_dprintf(2, "Error\n");
 				ft_lstclear(&node, free);
 				exit(1);
 			}

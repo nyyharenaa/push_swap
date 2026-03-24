@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_oplist.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: todina-r <todina-r@student.42antananarivo  +#+  +:+       +#+        */
+/*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 09:40:35 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/12 10:10:18 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/24 08:41:46 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	oplst_print(t_list *lst)
 	count = 0;
 	while (lst)
 	{
-		ft_printf("%s\n", lst->content);
+		ft_dprintf(1, "%s\n", lst->content);
 		lst = lst->next;
 		count++;
 	}

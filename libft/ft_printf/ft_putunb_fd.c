@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putunb_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/22 20:08:47 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/24 08:27:33 by todina-r         ###   ########.fr       */
+/*   Created: 2026/02/03 14:19:35 by todina-r          #+#    #+#             */
+/*   Updated: 2026/03/24 08:23:30 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putstr_fd(char *s, int fd)
+int	ft_putunb_fd(unsigned int nb, int fd)
 {
-	int	index;
+	int	count;
 
-	index = 0;
-	while (s && s[index])
-		ft_putchar_fd(s[index++], fd);
-	return (index);
+	count = 1;
+	if (nb >= 10)
+		count += ft_putunb_fd(nb / 10, fd);
+	ft_putchar_fd((nb % 10) + '0', fd);
+	return (count);
 }

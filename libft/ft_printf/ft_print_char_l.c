@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_print_char_l.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
+/*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/24 12:19:47 by ny-handr          #+#    #+#             */
-/*   Updated: 2026/03/01 09:26:27 by ny-handr         ###   ########.fr       */
+/*   Created: 2026/02/03 14:00:41 by todina-r          #+#    #+#             */
+/*   Updated: 2026/03/24 08:21:08 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putchar(int c)
+int	ft_print_char_l(int fd, va_list list)
 {
-	return ((int)write(1, &c, 1));
+	char	c;
+
+	c = va_arg(list, int);
+	return (ft_putchar_fd(c, fd));
 }

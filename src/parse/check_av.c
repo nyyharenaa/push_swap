@@ -6,7 +6,7 @@
 /*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 08:50:17 by ny-handr          #+#    #+#             */
-/*   Updated: 2026/03/24 10:39:18 by ny-handr         ###   ########.fr       */
+/*   Updated: 2026/03/24 12:23:01 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	check_av(t_list *av)
 				|| ft_strncmp(av->content, "--complex", 10) == 0
 				|| ft_strncmp(av->content, "--bench", 8) == 0))
 		{
-			ft_printf("Error\n");
+			ft_dprintf(2, "Error\n");
 			ft_lstclear(&node, free);
 			exit(1);
 		}
@@ -75,7 +75,7 @@ t_list	*check_flag(t_list *av)
 	if (ft_lstsize(flag) > 2
 		|| (ft_lstsize(flag) == 2 && ft_lstchr(flag, "--bench") == NULL))
 	{
-		ft_printf("Error\n");
+		ft_dprintf(2, "Error\n");
 		ft_lstclear(&temp, free);
 		ft_lstclear(&flag, free);
 		exit(1);

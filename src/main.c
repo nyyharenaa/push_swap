@@ -6,7 +6,7 @@
 /*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:30:04 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/17 12:01:06 by ny-handr         ###   ########.fr       */
+/*   Updated: 2026/03/24 10:52:13 by ny-handr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,19 @@ int	main(int ac, char **av)
 	(void)ac;
 	lst_av = get_av(av);
 	check_av(lst_av);
+	check_dup(lst_av);
 	flag = check_flag(lst_av);
-	ft_printf("Input values: %s\n", (char *)lst_av->content);
 	init_stack(&st_a);
 	init_stack(&st_b);
 	fill_stack_int(&st_a, lst_av);
+	ft_lstclear(&lst_av, free);
 	ft_printf("disorder metric: %i%%\n", (int)(100 * compute_disorder(st_a)));
 	oplist = al_simple(&st_a, &st_b);
 	oplst_print(oplist);
 	oplst_clear(&oplist);
 	st_clear(&st_a);
 	st_clear(&st_b);
+	ft_lstclear(&flag, free);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 08:50:17 by ny-handr          #+#    #+#             */
-/*   Updated: 2026/03/17 11:49:38 by ny-handr         ###   ########.fr       */
+/*   Updated: 2026/03/24 10:39:18 by ny-handr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ t_list	*get_av(char **av)
 		str_av = ft_split(av[i], ' ');
 		j = 0;
 		while (str_av[j])
-			ft_lstadd_back(&l_av, ft_lstnew(str_av[j++]));
-		free(str_av);
+			ft_lstadd_back(&l_av, ft_lstnew(ft_strdup(str_av[j++])));
+		free_tab(str_av);
 		i++;
 	}
 	return (l_av);
@@ -61,27 +61,22 @@ void	check_av(t_list *av)
 
 t_list	*check_flag(t_list *av)
 {
+	t_list	*temp;
 	t_list	*flag;
 
 	flag = NULL;
+	temp = av;
 	while (av)
 	{
-		if (ft_strncmp(av->content, "--", 2) == 0
-			&& ft_lstchr(flag, av->content))
-		{
-			ft_printf("Error\n");
-			ft_lstclear(&av, free);
-			ft_lstclear(&flag, free);
-			exit(1);
-		}
 		if (ft_strncmp(av->content, "--", 2) == 0)
-			ft_lstadd_back(&flag, ft_lstnew(av->content));
+			ft_lstadd_back(&flag, ft_lstnew(ft_strdup(av->content)));
 		av = av->next;
 	}
-	if (ft_lstsize(flag) > 2 || ft_lstchr(flag, "--bench") == NULL)
+	if (ft_lstsize(flag) > 2
+		|| (ft_lstsize(flag) == 2 && ft_lstchr(flag, "--bench") == NULL))
 	{
 		ft_printf("Error\n");
-		ft_lstclear(&av, free);
+		ft_lstclear(&temp, free);
 		ft_lstclear(&flag, free);
 		exit(1);
 	}

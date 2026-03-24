@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_utilis.c                                     :+:      :+:    :+:   */
+/*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 11:05:03 by ny-handr          #+#    #+#             */
-/*   Updated: 2026/03/17 11:05:57 by ny-handr         ###   ########.fr       */
+/*   Updated: 2026/03/24 10:39:42 by ny-handr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,42 @@ t_list	*ft_lstchr(t_list *lst, void *content)
 		lst = lst->next;
 	}
 	return (NULL);
+}
+
+void	free_tab(char **tab)
+{
+	size_t	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+}
+
+void	check_dup(t_list *av)
+{
+	t_list	*node;
+	t_list	*temp;
+	size_t	len;
+
+	node = av;
+	while (av)
+	{
+		temp = av->next;
+		while (temp)
+		{
+			len = ft_strlen(av->content);
+			if (!ft_strncmp(av->content, temp->content, len + 1))
+			{
+				ft_printf("Error\n");
+				ft_lstclear(&node, free);
+				exit(1);
+			}
+			temp = temp->next;
+		}
+		av = av->next;
+	}
 }

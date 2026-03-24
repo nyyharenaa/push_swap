@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 11:06:47 by ny-handr          #+#    #+#             */
-/*   Updated: 2026/03/24 16:56:15 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/24 19:01:02 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,8 @@
 # include "ps_stack.h"
 # include "ps_utils.h"
 
-t_list	*ft_lstchr(t_list *lst, void *content);
-void	check_dup(t_list *av);
-void	free_tab(char **tab);
-
-t_list	*get_av(char **av);
-void	check_av(t_list *av);
-t_list	*check_flag(t_list *av);
+t_list	*get_arglst(char **av);
+void	check_arglst(t_list *arglst);
+t_list	*extract_flag(t_list *flag);
 
 #endif

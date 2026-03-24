@@ -20,11 +20,11 @@ PS_SRCS = main.c\
 		  ps_op_rev_rotate.c\
 		  ps_op_rotate.c\
 		  ps_op_swap.c\
-		  ps_pr_utils.c\
-		  ps_pr_checker.c\
+		  ps_parser.c\
 		  ps_oplist.c\
 		  ps_stack.c\
 		  ps_bench.c\
+		  ps_option.c\
 		  ps_utils.c\
 
 LIBFT = libft/libft.a
@@ -50,7 +50,7 @@ run: $(NAME) $(CHECKER)
 	@echo "ARG: \e[2m$(ARG)"
 	@echo -n $(ARG) > input.txt
 	@echo -n "\e[0;1mSolution: \e[32m"
-	@./$(NAME) $(ARG) 1> output.txt 2> bench.txt
+	@./$(NAME) $(ARG) --medium 1> output.txt 2> bench.txt
 	@./$(CHECKER) $(ARG) < output.txt
 
 clean:

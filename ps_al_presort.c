@@ -6,13 +6,13 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 20:39:16 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/16 13:41:37 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/24 19:36:10 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_algorithm.h"
 
-t_stack	st_to_value_index(t_stack st)
+t_stack	normalize(t_stack st)
 {
 	t_st_node	*n1;
 	t_st_node	*n2;

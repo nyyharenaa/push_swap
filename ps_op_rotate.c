@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:45:03 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/12 22:53:33 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/24 19:30:51 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,5 @@ void	rr(t_stack *a, t_stack *b, t_list **oplst)
 	_rotate(a, b);
 	_rotate(b, a);
 	if (oplst)
-		oplst_add(oplst, "rb");
+		oplst_add(oplst, "rr");
 }

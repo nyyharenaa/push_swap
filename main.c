@@ -6,15 +6,65 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:30:04 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/24 16:55:01 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/24 19:41:40 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static t_list	*execute_algo(t_stack *st_a, t_stack *st_b, int optflag);
+static void		parse_stack(char **av, t_stack *st, int *optflag);
+
 int	main(int ac, char **av)
 {
+	t_stack	st_a;
+	t_stack	st_b;
+	t_list	*oplst;
+	int		optflag;
+	float	metric;
+
 	(void)ac;
-	(void)av;
+	st_b = create_stack();
+	parse_stack(av, &st_a, &optflag);
+	metric = compute_disorder(st_a);
+	oplst = execute_algo(&st_a, &st_b, optflag);
+	oplst_print(oplst);
+	if (opt_get_bench(optflag))
+		ps_bench(metric, optflag, oplst);
+	st_clear(&st_a);
+	st_clear(&st_b);
 	return (0);
+}
+
+static void	parse_stack(char **av, t_stack *st, int *optflag)
+{
+	t_list	*arglst;
+	t_list	*flaglst;
+	t_stack	sttmp;
+
+	*st = create_stack();
+	arglst = get_arglst(av);
+	check_arglst(arglst);
+	flaglst = extract_flag(arglst);
+	fill_stack(st, arglst);
+	*optflag = parse_flag(flaglst);
+	ft_lstclear(&arglst, NULL);
+	ft_lstclear(&flaglst, NULL);
+	sttmp = normalize(*st);
+	st_clear(st);
+	*st = sttmp;
+}
+
+static t_list	*execute_algo(t_stack *st_a, t_stack *st_b, int optflag)
+{
+	t_list	*oplst;
+
+	oplst = NULL;
+	if (opt_get_complexity(optflag) == CMPLX_SQRN)
+		oplst = al_simple(st_a, st_b);
+	else if (opt_get_complexity(optflag) == CMPLX_NSQRTN)
+		oplst = al_medium(st_a, st_b);
+	else if (opt_get_complexity(optflag) == CMPLX_NLOGN)
+		oplst = al_complex(st_a, st_b);
+	return (oplst);
 }

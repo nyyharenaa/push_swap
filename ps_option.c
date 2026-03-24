@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ps_option.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/10 12:45:49 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/24 18:17:21 by todina-r         ###   ########.fr       */
+/*   Created: 2026/03/24 18:10:54 by todina-r          #+#    #+#             */
+/*   Updated: 2026/03/24 19:00:02 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "ps_option.h"
 
-# include "libft.h"
+int	opt_get_bench(int optflag)
+{
+	return (optflag & (1 << 2));
+}
 
-# include "ps_stack.h"
-# include "ps_oplist.h"
-# include "ps_operation.h"
-# include "ps_algorithm.h"
-# include "ps_parser.h"
-# include "ps_bench.h"
-# include "ps_option.h"
-# include "ps_utils.h"
+int	opt_get_strategy(int optflag)
+{
+	return (optflag & (3 << 0));
+}
 
-#endif
+int	opt_get_complexity(int optflag)
+{
+	return (optflag & (3 << 3));
+}

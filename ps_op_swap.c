@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:44:23 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/12 22:48:46 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/24 19:31:23 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	sa(t_stack *a, t_stack *b, t_list **oplst)
 
 void	sb(t_stack *a, t_stack *b, t_list **oplst)
 {
-	_swap(a, b);
+	_swap(b, a);
 	if (oplst)
-		oplst_add(oplst, "sa");
+		oplst_add(oplst, "sb");
 }
 
 void	ss(t_stack *a, t_stack *b, t_list **oplst)

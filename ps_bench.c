@@ -6,20 +6,20 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 22:38:29 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/24 09:44:09 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/24 18:59:44 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_bench.h"
 
-static const char	*get_strategy_detail(int strgt, int cplxt);
+static const char	*get_strategy_detail(int optflag);
 
-void	ps_bench(float metric, int strgt, int cplxt, t_list *oplst)
+void	ps_bench(float metric, int optflag, t_list *oplst)
 {
 	ft_dprintf(2, "[bench] disorder:  %f%%\n",
 		metric * 100);
 	ft_dprintf(2, "[bench] strategy:  %s\n",
-		get_strategy_detail(strgt, cplxt));
+		get_strategy_detail(optflag));
 	ft_dprintf(2, "[bench] total_ops:  %i\n",
 		ft_lstsize(oplst));
 	ft_dprintf(2, "[bench] sa:  %i  sb:  %i  pa:  %i  pb:  %i\n",
@@ -32,22 +32,22 @@ void	ps_bench(float metric, int strgt, int cplxt, t_list *oplst)
 		oplst_count(oplst, "rrb"), oplst_count(oplst, "rrr"));
 }
 
-static const char	*get_strategy_detail(int strgt, int cplxt)
+static const char	*get_strategy_detail(int optflag)
 {
-	if (strgt == SIMPLE)
+	if (opt_get_strategy(optflag) == STRGT_SIMPLE)
 		return ("Simple / O(n²)");
-	if (strgt == MEDIUM)
+	if (opt_get_strategy(optflag) == STRGT_MEDIUM)
 		return ("Medium / O(n√n)");
-	if (strgt == COMPLEX)
-		return ("Complex / O(n log n)");
-	if (strgt == ADAPTIVE)
+	if (opt_get_strategy(optflag) == STRGT_COMPLEX)
+		return ("Complex / O(nlogn)");
+	if (opt_get_strategy(optflag) == STRGT_ADAPTIVE)
 	{
-		if (cplxt == SQRN)
+		if (opt_get_complexity(optflag) == CMPLX_SQRN)
 			return ("Adaptive / O(n²)");
-		if (cplxt == SQRN)
+		if (opt_get_complexity(optflag) == CMPLX_NSQRTN)
 			return ("Adaptive / O(n√n)");
-		if (cplxt == SQRN)
-			return ("Adaptive / O(n log n)");
+		if (opt_get_complexity(optflag) == CMPLX_NLOGN)
+			return ("Adaptive / O(nlogn)");
 	}
 	return ("");
 }

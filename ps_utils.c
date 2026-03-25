@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 14:28:22 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/24 20:17:44 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/25 06:49:46 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	isnumber(const char *str)
 	return (1);
 }
 
-t_list	*ft_lstchr(t_list *lst, void *content)
+t_list	*lstchr(t_list *lst, void *content)
 {
 	while (lst)
 	{
@@ -73,13 +73,13 @@ int	parse_flag(t_list *flaglst)
 	int	optflag;
 
 	optflag = 0;
-	if (ft_lstchr(flaglst, "--bench"))
+	if (lstchr(flaglst, "--bench"))
 		optflag = optflag | OPT_BENCH;
-	if (ft_lstchr(flaglst, "--simple"))
+	if (lstchr(flaglst, "--simple"))
 		optflag = optflag | STRGT_SIMPLE | CMPLX_SQRN;
-	else if (ft_lstchr(flaglst, "--medium"))
+	else if (lstchr(flaglst, "--medium"))
 		optflag = optflag | STRGT_MEDIUM | CMPLX_NSQRTN;
-	else if (ft_lstchr(flaglst, "--complex"))
+	else if (lstchr(flaglst, "--complex"))
 		optflag = optflag | STRGT_COMPLEX | CMPLX_NLOGN;
 	return (optflag);
 }

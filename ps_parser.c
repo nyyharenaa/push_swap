@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 08:50:17 by ny-handr          #+#    #+#             */
-/*   Updated: 2026/03/24 17:57:16 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/25 06:49:46 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ t_list	*extract_flag(t_list *arglst)
 		node = node->next;
 	}
 	if (ft_lstsize(flaglst) > 2
-		|| (ft_lstsize(flaglst) == 2 && ft_lstchr(flaglst, "--bench") == NULL))
+		|| (ft_lstsize(flaglst) == 2 && lstchr(flaglst, "--bench") == NULL))
 	{
 		ft_dprintf(2, "Error\n");
 		ft_lstclear(&arglst, free);

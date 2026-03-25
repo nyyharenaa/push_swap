@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 14:31:35 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/24 20:18:08 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/25 06:49:46 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 t_stack	create_stack(void);
 int		isnumber(const char *str);
-t_list	*ft_lstchr(t_list *lst, void *content);
+t_list	*lstchr(t_list *lst, void *content);
 void	fill_stack(t_stack *stack, t_list *lst);
 int		parse_flag(t_list *flaglst);
 

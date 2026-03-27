@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:30:04 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/27 09:10:17 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/27 11:17:29 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void		pick_algo(int *optflag, float metric);
 static t_list	*execute_algo(t_stack *st_a, t_stack *st_b, int optflag);
-static void		parse_stack(char **av, t_stack *st, int *optflag);
+static int		parse_stack(char **av, t_stack *st, int *optflag);
 
 int	main(int ac, char **av)
 {
@@ -27,39 +27,50 @@ int	main(int ac, char **av)
 	(void)ac;
 	oplst = NULL;
 	st_b = create_stack();
-	parse_stack(av, &st_a, &optflag);
-	metric = compute_disorder(st_a);
-	if (opt_get_strategy(optflag) == STRGT_ADAPTIVE)
+	if (parse_stack(av, &st_a, &optflag))
+	{
+		metric = compute_disorder(st_a);
+		if (opt_get_strategy(optflag) == STRGT_ADAPTIVE)
 		pick_algo(&optflag, metric);
-	if (!is_sorted(st_a))
+		if (!is_sorted(st_a))
 		oplst = execute_algo(&st_a, &st_b, optflag);
-	oplst_print(oplst);
-	if (opt_get_bench(optflag))
+		oplst_print(oplst);
+		if (opt_get_bench(optflag))
 		ps_bench(metric, optflag, oplst);
-	if (oplst)
+		if (oplst)
 		oplst_clear(&oplst);
-	st_clear(&st_a);
-	st_clear(&st_b);
+		st_clear(&st_a);
+		st_clear(&st_b);
+	}
 	return (0);
 }
 
-static void	parse_stack(char **av, t_stack *st, int *optflag)
+static int	parse_stack(char **av, t_stack *st, int *optflag)
 {
 	t_list	*arglst;
 	t_list	*flaglst;
 	t_stack	sttmp;
+	int		valid;
 
+	flaglst = NULL;
+	arglst = NULL;
 	*st = create_stack();
-	arglst = get_arglst(av);
-	check_arglst(arglst);
-	flaglst = extract_flag(arglst);
-	fill_stack(st, arglst);
-	*optflag = parse_flag(flaglst);
+	valid = get_datalst(av, &arglst, &flaglst);
+	valid = valid && check_flag(flaglst);
+	valid = valid && check_arg(arglst);
+	if (valid)
+	{
+		fill_stack(st, arglst);
+		*optflag = parse_flag(flaglst);
+		sttmp = normalize(*st);
+		st_clear(st);
+		*st = sttmp;
+	}
+	else
+		ft_dprintf(2, "Error\n");
 	ft_lstclear(&arglst, free);
 	ft_lstclear(&flaglst, free);
-	sttmp = normalize(*st);
-	st_clear(st);
-	*st = sttmp;
+	return (valid);
 }
 
 static t_list	*execute_algo(t_stack *st_a, t_stack *st_b, int optflag)

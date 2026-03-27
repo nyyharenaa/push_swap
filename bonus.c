@@ -6,14 +6,14 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 06:07:41 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/27 09:14:46 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/27 11:30:06 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static int		execute_funclst(t_list *funclst, t_stack *st_a, t_stack *st_b);
-static void		parse_stack(char **av, t_stack *st);
+static int		parse_stack(char **av, t_stack *st);
 static void		*get_cmdfunction(char *cmd);
 static t_list	*parse_input(char *input);
 
@@ -28,7 +28,8 @@ int	main(int ac, char **av)
 	input = NULL;
 	funclst = NULL;
 	st_b = create_stack();
-	parse_stack(av, &st_a);
+	if (!parse_stack(av, &st_a))
+		return (0);
 	input = get_next_line(0);
 	while (input != NULL)
 	{
@@ -38,35 +39,30 @@ int	main(int ac, char **av)
 		ft_lstclear(&funclst, NULL);
 		input = get_next_line(0);
 	}
-	if (compute_disorder(st_a) == 0)
+	if (is_sorted(st_a))
 		ft_dprintf(1, "OK\n");
 	else
 		ft_dprintf(1, "KO\n");
 	return (0);
 }
 
-static void	parse_stack(char **av, t_stack *st)
+static int	parse_stack(char **av, t_stack *st)
 {
 	t_list	*arglst;
-	t_list	*node;
-	int		value;
-	int		index;
+	t_list	*flaglst;
+	int		valid;
 
-	index = 0;
 	*st = create_stack();
-	arglst = get_arglst(av);
-	node = arglst;
-	while (node != NULL)
-	{
-		if (!isnumber(node->content))
-			break ;
-		value = ft_atoi(node->content);
-		st_add_back(st, st_new(value));
-		node = node->next;
-	}
-	if (node != NULL)
-		st_clear(st);
+	valid = get_datalst(av, &arglst, &flaglst);
+	valid = valid & check_flag(flaglst);
+	valid = valid & check_arg(arglst);
+	if (valid && (flaglst == NULL))
+		fill_stack(st, arglst);
+	else
+		ft_dprintf(2, "Error\n");
+	ft_lstclear(&flaglst, free);
 	ft_lstclear(&arglst, free);
+	return (valid && (flaglst == NULL));
 }
 
 static int	execute_funclst(t_list *funclst, t_stack *st_a, t_stack *st_b)

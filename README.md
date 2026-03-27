@@ -37,10 +37,10 @@ This project focuses on:
 
 * Robust error handling:
 
-  * [x] Non-integer arguments
-  * [x] Duplicate values
-  * [ ] Integer overflow
-  * [x] Invalid flags
+  * Non-integer arguments
+  * Duplicate values
+  * Integer overflow
+  * Invalid flags
 
 ---
 
@@ -103,8 +103,8 @@ Repeating this action to each node in `a` and pushing every node in `b` to `a` l
 * Chunk size formula: `√n`
 * Strategy flow:
 
-  1. `push every node with value below √n, then below 2√n, ...`
-  2. `apply the inverse of the Simple strategy on b`
+  1. push every node with value below `√n`, then below `2√n`, ...
+  2. apply the inverse of the Simple strategy on `b`
 
 The algorithm divide the initial stack to `√n` bucket with `√n` capacity and perform a `m²` algorithm with each one of the `√n` chunck (`m = √n` => `(√n)² = n`) leading to `n` `√n` times (`n√n`).
 
@@ -114,7 +114,13 @@ The algorithm divide the initial stack to `√n` bucket with `√n` capacity and
 
 * Algorithm used: `Radix sort`
 * Bit / partition logic: `push to b every node with 0 in the specified bit, starting with the LSD`
-* Why suitable for large inputs: `loop at most 32 times ( sizeof(int) ) through a`
+* Why suitable for large inputs: `loop at most 32 times ( sizeof(int) * 8 ) through a`
+
+  1. The algorithm check the bit of each node's value from `LSD` to `MSD` and push every node who have a bit`0` in the checked position, taking exactly `n` operation.
+  2. When every node in `a` are checked, return every node in `b` to a, taking at most `n` operation.
+  3. The process above are repeated at most `32` times.
+
+As the value taken by this algorithm are between `-2147483648` and `2147483647`, who are represented at most by 32 bit. In the case when every possible value are given, we have `n = 2 * 2147483647`, equal to `4294967294` then we have `log 4294967294 = 32`. In sum, in the worst case scenario (n = `4294967294`), we perform `n` `push` or `rotate`, plus `n` `push` to `a`, and we repeat that process in `log 4294967294` times. We execute then `2n log n` operation, noted `O(n log n)`.
 
 ---
 

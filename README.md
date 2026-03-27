@@ -92,7 +92,7 @@ Thresholds used in the adaptive strategy:
 * Advantages: `small input / low and high disorder metric`
 * Limitations: `large inputs / disorder count around 0.5`
 
-The algorithm loop, at nost, through `n` node (optimized to `n / 2`) to find the maximum valued node before pushing it to `b`.
+The algorithm loop, at most, through `n` node (optimized to `n / 2` when using `reverse rotate`) to find the maximum valued node before pushing it to `b`.
 Repeating this action to each node in `a` and pushing every node in `b` to `a` lead to a `n²` complexity.
 
 ---
@@ -266,9 +266,9 @@ AI tools were used for:
 
 * documentation structuring
 * documentation review
-* exeptional case error
+* exceptional case error
 
-AI was **not** used to generate or copy implementation code directly. All logic and coding decisions were made and implemented by the project author.
+AI was **not** used to generate or copy implementation code directly. All logic and coding decisions were made and implemented by the project authors.
 
 ---
 

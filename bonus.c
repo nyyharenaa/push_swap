@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 06:07:41 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/25 06:59:50 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/27 09:14:46 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int ac, char **av)
 		funclst = parse_input(input);
 		execute_funclst(funclst, &st_a, &st_b);
 		free(input);
-		ft_lstclear(funclst, NULL);
+		ft_lstclear(&funclst, NULL);
 		input = get_next_line(0);
 	}
 	if (compute_disorder(st_a) == 0)
@@ -59,13 +59,13 @@ static void	parse_stack(char **av, t_stack *st)
 	while (node != NULL)
 	{
 		if (!isnumber(node->content))
-			break;
+			break ;
 		value = ft_atoi(node->content);
 		st_add_back(st, st_new(value));
 		node = node->next;
 	}
 	if (node != NULL)
-		st_clear(&st);
+		st_clear(st);
 	ft_lstclear(&arglst, free);
 }
 
@@ -87,7 +87,7 @@ static int	execute_funclst(t_list *funclst, t_stack *st_a, t_stack *st_b)
 	return (1);
 }
 
-static void *get_cmdfunction(char *cmd)
+static void	*get_cmdfunction(char *cmd)
 {
 	if (ft_strncmp(cmd, "sa", 4))
 		return (sa);

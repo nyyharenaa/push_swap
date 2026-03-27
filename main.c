@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:30:04 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/24 20:34:16 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/27 09:10:17 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,19 @@ int	main(int ac, char **av)
 	float	metric;
 
 	(void)ac;
+	oplst = NULL;
 	st_b = create_stack();
 	parse_stack(av, &st_a, &optflag);
 	metric = compute_disorder(st_a);
 	if (opt_get_strategy(optflag) == STRGT_ADAPTIVE)
 		pick_algo(&optflag, metric);
-	oplst = execute_algo(&st_a, &st_b, optflag);
+	if (!is_sorted(st_a))
+		oplst = execute_algo(&st_a, &st_b, optflag);
 	oplst_print(oplst);
 	if (opt_get_bench(optflag))
 		ps_bench(metric, optflag, oplst);
-	oplst_clear(&oplst);
+	if (oplst)
+		oplst_clear(&oplst);
 	st_clear(&st_a);
 	st_clear(&st_b);
 	return (0);
@@ -64,7 +67,9 @@ static t_list	*execute_algo(t_stack *st_a, t_stack *st_b, int optflag)
 	t_list	*oplst;
 
 	oplst = NULL;
-	if (opt_get_complexity(optflag) == CMPLX_SQRN)
+	if (st_a->size <= 3)
+		oplst = al_special_case(st_a, st_b);
+	else if (opt_get_complexity(optflag) == CMPLX_SQRN)
 		oplst = al_simple(st_a, st_b);
 	else if (opt_get_complexity(optflag) == CMPLX_NSQRTN)
 		oplst = al_medium(st_a, st_b);

@@ -6,7 +6,7 @@
 /*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 14:08:36 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/13 08:45:11 by ny-handr         ###   ########.fr       */
+/*   Updated: 2026/03/27 09:14:03 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,20 @@ float	compute_disorder(t_stack st)
 	if (pair)
 		return ((float)mistake / pair);
 	return (0);
+}
+
+int	is_sorted(t_stack st)
+{
+	int			sorted;
+	t_st_node	*node;
+
+	sorted = 1;
+	node = st.first;
+	while (sorted && node && node->next)
+	{
+		if (node->value > node->next->value)
+			sorted = 0;
+		node = node->next;
+	}
+	return (sorted);
 }

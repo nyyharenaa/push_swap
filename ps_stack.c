@@ -6,13 +6,13 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:13:35 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/11 08:01:07 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/27 09:22:22 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_stack.h"
 
-t_st_node	*st_new(int val)
+t_st_node	*st_new(long val)
 {
 	t_st_node	*node;
 

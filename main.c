@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:30:04 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/27 11:17:29 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/27 11:40:06 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ int	main(int ac, char **av)
 	{
 		metric = compute_disorder(st_a);
 		if (opt_get_strategy(optflag) == STRGT_ADAPTIVE)
-		pick_algo(&optflag, metric);
+			pick_algo(&optflag, metric);
 		if (!is_sorted(st_a))
-		oplst = execute_algo(&st_a, &st_b, optflag);
+			oplst = execute_algo(&st_a, &st_b, optflag);
 		oplst_print(oplst);
 		if (opt_get_bench(optflag))
-		ps_bench(metric, optflag, oplst);
+			ps_bench(metric, optflag, oplst);
 		if (oplst)
-		oplst_clear(&oplst);
+			oplst_clear(&oplst);
 		st_clear(&st_a);
 		st_clear(&st_b);
 	}

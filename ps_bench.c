@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 22:38:29 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/24 18:59:44 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/27 14:53:36 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static const char	*get_strategy_detail(int optflag)
 	if (opt_get_strategy(optflag) == STRGT_MEDIUM)
 		return ("Medium / O(n√n)");
 	if (opt_get_strategy(optflag) == STRGT_COMPLEX)
-		return ("Complex / O(nlogn)");
+		return ("Complex / O(n log n)");
 	if (opt_get_strategy(optflag) == STRGT_ADAPTIVE)
 	{
 		if (opt_get_complexity(optflag) == CMPLX_SQRN)
@@ -47,7 +47,7 @@ static const char	*get_strategy_detail(int optflag)
 		if (opt_get_complexity(optflag) == CMPLX_NSQRTN)
 			return ("Adaptive / O(n√n)");
 		if (opt_get_complexity(optflag) == CMPLX_NLOGN)
-			return ("Adaptive / O(nlogn)");
+			return ("Adaptive / O(n log n)");
 	}
 	return ("");
 }

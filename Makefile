@@ -29,6 +29,7 @@ PS_SRCS = main.c\
 
 CH_SRCS = bonus.c\
 		  ps_al_metric.c\
+		  ps_al_presort.c\
 		  ps_op_push.c\
 		  ps_op_rev_rotate.c\
 		  ps_op_rotate.c\

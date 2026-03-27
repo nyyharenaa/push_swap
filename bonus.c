@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 06:07:41 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/27 14:12:03 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/27 14:52:24 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,6 @@ static int		execute_funclst(t_list *funclst, t_stack *st_a, t_stack *st_b);
 static int		parse_stack(char **av, t_stack *st);
 static void		*get_cmdfunction(char *cmd);
 static t_list	*parse_input(char *input);
-
-static void		print_stack(t_stack st)
-{
-	t_st_node	*node;
-
-	node = st.first;
-	write(1, "stack: ", 8);
-	while (node)
-	{
-		ft_dprintf(1, "%i ", node->value);
-		node = node->next;
-	}
-	write(1, "\n", 1);
-}
 
 int	main(int ac, char **av)
 {
@@ -64,6 +50,7 @@ static int	parse_stack(char **av, t_stack *st)
 {
 	t_list	*arglst;
 	t_list	*flaglst;
+	t_stack	sttmp;
 	int		valid;
 
 	arglst = NULL;
@@ -73,7 +60,12 @@ static int	parse_stack(char **av, t_stack *st)
 	valid = valid & check_flag(flaglst);
 	valid = valid & check_arg(arglst);
 	if (valid && (flaglst == NULL))
+	{
 		fill_stack(st, arglst);
+		sttmp = normalize(*st);
+		st_clear(st);
+		*st = sttmp;
+	}
 	else
 		ft_dprintf(2, "Error\n");
 	ft_lstclear(&flaglst, free);
@@ -94,7 +86,6 @@ static int	execute_funclst(t_list *funclst, t_stack *st_a, t_stack *st_b)
 			func(st_a, st_b, NULL);
 		else
 			return (0);
-		print_stack(*st_a);
 		node = node->next;
 	}
 	return (1);
@@ -112,18 +103,18 @@ static void	*get_cmdfunction(char *cmd)
 		return (pa);
 	else if (ft_strncmp(cmd, "pb", 2) == 0)
 		return (pb);
-	else if (ft_strncmp(cmd, "ra", 2) == 0)
-		return (ra);
-	else if (ft_strncmp(cmd, "rb", 2) == 0)
-		return (rb);
-	else if (ft_strncmp(cmd, "rr", 2) == 0)
-		return (rr);
 	else if (ft_strncmp(cmd, "rra", 3) == 0)
 		return (rra);
 	else if (ft_strncmp(cmd, "rrb", 3) == 0)
 		return (rrb);
 	else if (ft_strncmp(cmd, "rrr", 3) == 0)
 		return (rrr);
+	else if (ft_strncmp(cmd, "ra", 2) == 0)
+		return (ra);
+	else if (ft_strncmp(cmd, "rb", 2) == 0)
+		return (rb);
+	else if (ft_strncmp(cmd, "rr", 2) == 0)
+		return (rr);
 	return (NULL);
 }
 

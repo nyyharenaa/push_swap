@@ -124,6 +124,13 @@ As the value taken by this algorithm are between `-2147483648` and `2147483647`,
 
 ---
 
+#### 4. Special case strategy
+
+* Principle: `if the number of node are less than 3, we use a pre-conceved set of operation`
+* Limitations: `work only for a very few input case`
+
+---
+
 #### 4. Adaptive Strategy
 
 The program computes disorder and dynamically selects the most appropriate internal method.
@@ -145,8 +152,8 @@ push_swap/
 ├── *.h				# misc. header
 │
 ├── main.c
-├── ps_al_*.c			# algorithm
-├── ps_op_*.c			# push_swap operation
+├── ps_al_*.c		# algorithm
+├── ps_op_*.c		# push_swap operation
 ├── ps_bench.c		# benchmark
 ├── ps_oplist.c		# result storage utility
 ├── ps_option.c		# program option utility
@@ -250,7 +257,8 @@ The `checker` program:
 * Prints:
 
   * `OK` if sorted
-  * `KO` otherwise
+  * `KO` if not sorted
+  * `Error` if invalid command line argument
 
 ---
 
@@ -274,5 +282,5 @@ AI was **not** used to generate or copy implementation code directly. All logic 
 
 ### Authors
 
-* `todina-r` — algorithm, optimization, documentation, cleaning
-* `ny-handr` — argument parsing, error handling, algorithm, cleaning
+* `todina-r`: [DinaTolotra](https://github.com/DinaTolotra) — algorithm, optimization, documentation, cleaning
+* `ny-handr`: [nyyharenaa](https://github.com/nyyharenaa) — argument parsing, error handling, algorithm, cleaning

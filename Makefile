@@ -29,12 +29,6 @@ PS_SRCS = main.c\
 
 CH_SRCS = bonus.c\
 		  ps_al_metric.c\
-		  ps_al_presort.c\
-		  ps_al_postsort.c\
-		  ps_al_simple.c\
-		  ps_al_medium.c\
-		  ps_al_complex.c\
-		  ps_al_special_case.c\
 		  ps_op_push.c\
 		  ps_op_rev_rotate.c\
 		  ps_op_rotate.c\
@@ -42,7 +36,6 @@ CH_SRCS = bonus.c\
 		  ps_parser.c\
 		  ps_oplist.c\
 		  ps_stack.c\
-		  ps_bench.c\
 		  ps_option.c\
 		  ps_utils.c\
 

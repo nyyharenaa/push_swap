@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 08:50:17 by ny-handr          #+#    #+#             */
-/*   Updated: 2026/03/27 11:31:42 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/27 14:09:13 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ int	get_datalst(char **av, t_list **arglst, t_list **flaglst)
 
 	i = 1;
 	valid = 1;
-	while (av[i])
+	while (av[i++])
 	{
 		j = 0;
-		str_av = ft_split(av[i], ' ');
+		str_av = ft_split(av[i - 1], ' ');
 		while (str_av[j])
 		{
 			if (ft_strncmp(str_av[j], "--", 2) == 0)
@@ -40,8 +40,8 @@ int	get_datalst(char **av, t_list **arglst, t_list **flaglst)
 				valid = 0;
 			free(str_av[j++]);
 		}
+		valid = valid && (j > 0);
 		free(str_av);
-		i++;
 	}
 	return (valid);
 }

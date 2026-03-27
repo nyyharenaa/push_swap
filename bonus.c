@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 06:07:41 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/27 11:30:06 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/27 14:12:03 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,20 @@ static int		execute_funclst(t_list *funclst, t_stack *st_a, t_stack *st_b);
 static int		parse_stack(char **av, t_stack *st);
 static void		*get_cmdfunction(char *cmd);
 static t_list	*parse_input(char *input);
+
+static void		print_stack(t_stack st)
+{
+	t_st_node	*node;
+
+	node = st.first;
+	write(1, "stack: ", 8);
+	while (node)
+	{
+		ft_dprintf(1, "%i ", node->value);
+		node = node->next;
+	}
+	write(1, "\n", 1);
+}
 
 int	main(int ac, char **av)
 {
@@ -35,8 +49,8 @@ int	main(int ac, char **av)
 	{
 		funclst = parse_input(input);
 		execute_funclst(funclst, &st_a, &st_b);
-		free(input);
 		ft_lstclear(&funclst, NULL);
+		free(input);
 		input = get_next_line(0);
 	}
 	if (is_sorted(st_a))
@@ -52,6 +66,8 @@ static int	parse_stack(char **av, t_stack *st)
 	t_list	*flaglst;
 	int		valid;
 
+	arglst = NULL;
+	flaglst = NULL;
 	*st = create_stack();
 	valid = get_datalst(av, &arglst, &flaglst);
 	valid = valid & check_flag(flaglst);
@@ -67,8 +83,8 @@ static int	parse_stack(char **av, t_stack *st)
 
 static int	execute_funclst(t_list *funclst, t_stack *st_a, t_stack *st_b)
 {
-	void	(*func)(t_stack *, t_stack *, t_list **);
-	t_list	*node;
+	void		(*func)(t_stack *, t_stack *, t_list **);
+	t_list		*node;
 
 	node = funclst;
 	while (node != NULL)
@@ -78,6 +94,7 @@ static int	execute_funclst(t_list *funclst, t_stack *st_a, t_stack *st_b)
 			func(st_a, st_b, NULL);
 		else
 			return (0);
+		print_stack(*st_a);
 		node = node->next;
 	}
 	return (1);
@@ -85,27 +102,27 @@ static int	execute_funclst(t_list *funclst, t_stack *st_a, t_stack *st_b)
 
 static void	*get_cmdfunction(char *cmd)
 {
-	if (ft_strncmp(cmd, "sa", 4))
+	if (ft_strncmp(cmd, "sa", 2) == 0)
 		return (sa);
-	else if (ft_strncmp(cmd, "sb", 4))
+	else if (ft_strncmp(cmd, "sb", 2) == 0)
 		return (sb);
-	else if (ft_strncmp(cmd, "ss", 4))
+	else if (ft_strncmp(cmd, "ss", 2) == 0)
 		return (ss);
-	else if (ft_strncmp(cmd, "pa", 4))
+	else if (ft_strncmp(cmd, "pa", 2) == 0)
 		return (pa);
-	else if (ft_strncmp(cmd, "pb", 4))
+	else if (ft_strncmp(cmd, "pb", 2) == 0)
 		return (pb);
-	else if (ft_strncmp(cmd, "ra", 4))
+	else if (ft_strncmp(cmd, "ra", 2) == 0)
 		return (ra);
-	else if (ft_strncmp(cmd, "rb", 4))
+	else if (ft_strncmp(cmd, "rb", 2) == 0)
 		return (rb);
-	else if (ft_strncmp(cmd, "rr", 4))
+	else if (ft_strncmp(cmd, "rr", 2) == 0)
 		return (rr);
-	else if (ft_strncmp(cmd, "rra", 4))
+	else if (ft_strncmp(cmd, "rra", 3) == 0)
 		return (rra);
-	else if (ft_strncmp(cmd, "rrb", 4))
+	else if (ft_strncmp(cmd, "rrb", 3) == 0)
 		return (rrb);
-	else if (ft_strncmp(cmd, "rrr", 4))
+	else if (ft_strncmp(cmd, "rrr", 3) == 0)
 		return (rrr);
 	return (NULL);
 }

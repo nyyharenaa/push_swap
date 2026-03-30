@@ -4,6 +4,30 @@
 
 # push_swap
 
+* [Description](#description)
+* [Constraints](#constraints)
+  * [Allowed operations](#allowed-operations)
+* [Features](#features)
+* [Disorder metric](#disorder-metric)
+* [Algorithm implemented](#algorithms-implemented)
+  * [0. Normalization](#0-normalization)
+  * [1. Simple strategy](#1-simple-strategy--on)
+  * [2. Medium strategy](#2-medium-strategy--onn)
+  * [3. Complex strategy](#3-complex-strategy--on-log-n)
+  * [4. Adaptive Strategy](#4-adaptive-strategy)
+  * [5. Special case](#5-special-case-strategy)
+  * [6. Operation sequence optimization](#6-operation-sequence-optimization)
+* [Project structure](#project-structure)
+* [Instruction](#instructions)
+  * [Compilation](#compilation)
+  * [Usage](#usage)
+* [Performance targets](#performance-targets)
+* [Error handling](#error-handling)
+* [Bonus - checker](#bonus--checker)
+* [Resources](#resources)
+  * [AI usage](#ai-usage)
+* [Authors](#authors)
+
 ### Description
 
 **push_swap** is an algorithmic project whose objective is to sort a list of integers using two stacks (`a` and `b`) and a restricted set of stack operations.
@@ -25,6 +49,14 @@ This project focuses on:
 - No memory leaks
 - Must handle all edge cases
 - Must follow 42 Norm
+
+
+#### Allowed Operations
+
+* `sa` / `sb` / `ss` — swap
+* `pa` / `pb` — push
+* `ra` / `rb` / `rr` — rotate
+* `rra` / `rrb` / `rrr` — reverse rotate
 
 ---
 
@@ -50,15 +82,6 @@ This project focuses on:
   * Duplicate values
   * Integer overflow
   * Invalid flags
-
----
-
-### Allowed Operations
-
-* `sa` / `sb` / `ss` — swap
-* `pa` / `pb` — push
-* `ra` / `rb` / `rr` — rotate
-* `rra` / `rrb` / `rrr` — reverse rotate
 
 ---
 
@@ -224,9 +247,7 @@ Rebuild:
 make re
 ```
 
----
-
-### Usage
+#### Usage
 
 Basic execution:
 

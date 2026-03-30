@@ -53,10 +53,8 @@ t_list	*lstchr(t_list *lst, void *content)
 
 void	fill_stack(t_stack *stack, t_list *lst)
 {
-	t_list		*temp;
 	t_st_node	*node;
 
-	temp = lst;
 	while (lst)
 	{
 		if (isnumber((char *)lst->content))

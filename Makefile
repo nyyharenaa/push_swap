@@ -4,7 +4,7 @@ CHECKER = checker
 CC = cc
 AR = ar rcs
 RM = rm -rf
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 INCLUDE = libft
 
@@ -41,9 +41,6 @@ CH_SRCS = bonus.c\
 		  ps_utils.c\
 
 LIBFT = libft/libft.a
-
-NB_COUNT = 100
-ARG := $(shell shuf -i 0-2000 -n $(NB_COUNT) | tr '\n' ' ')
 
 .DEFAULT_GOAL := all
 

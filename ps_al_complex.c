@@ -49,7 +49,7 @@ static size_t	get_max_bits(t_stack *st)
 
 	size = st->size;
 	max_bits = 0;
-	while ((1 << max_bits) < size)
+	while ((size_t)(1 << max_bits) < size)
 		max_bits++;
 	return (max_bits);
 }

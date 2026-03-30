@@ -19,6 +19,15 @@ This project focuses on:
 
 ---
 
+### Constraints
+
+- Only allowed operations must be used
+- No memory leaks
+- Must handle all edge cases
+- Must follow 42 Norm
+
+---
+
 ### Features
 
 * Sorting using **four distinct strategies**
@@ -61,6 +70,9 @@ $$
 disorder = inversionCount / pairCount
 $$
 
+- inversionCount: number of pairs (i, j) such that i < j and a[i] > a[j]
+- pairCount: total number of possible pairs = n(n - 1) / 2
+
 Thresholds used in the adaptive strategy:
 
 * `< 0.2` → Low disorder → `O(n²)` method
@@ -80,20 +92,23 @@ Thresholds used in the adaptive strategy:
 
 #### 0. Normalization
 
-* Principle: `make the value of each node contiguous (0, 1, 2, ..., size - 1)`
-* Advantages: `allow to use bit-order-dependent algorithm`
+* Principle: make the value of each `node` contiguous (`0`, `1`, `2`, ..., `size - 1`)
+* Advantages: allow to use bit-order-dependent algorithm.
 
 ---
 
 #### 1. Simple Strategy — `O(n²)`
 
 * Algorithm used: `Max extraction`
-* Principle: `push the nodes in a to b, starting with the maximum`
-* Advantages: `small input / low and high disorder metric`
-* Limitations: `large inputs / disorder count around 0.5`
+* Principle: `push` the nodes in `a` to `b`, starting with the `maximum`
+* Advantages: small input / low and high `disorder metric`
+* Limitations: large inputs / disorder count around `0.5`
 
-The algorithm loop, at most, through `n` node (optimized to `n / 2` when using `reverse rotate`) to find the maximum valued node before pushing it to `b`.
-Repeating this action to each node in `a` and pushing every node in `b` to `a` lead to a `n²` complexity.
+> Complexity:
+> 
+> The algorithm loop, at most, through `n` node (optimized to `n / 2` when using `reverse rotate`) to find the maximum valued node before pushing it to `b`.
+> Repeating this action to each node in `a` and pushing every node in `b` to `a` lead to a `n²` complexity.
+>
 
 ---
 
@@ -106,28 +121,27 @@ Repeating this action to each node in `a` and pushing every node in `b` to `a` l
   1. push every node with value below `√n`, then below `2√n`, ...
   2. apply the inverse of the Simple strategy on `b`
 
-The algorithm divide the initial stack to `√n` bucket with `√n` capacity and perform a `m²` algorithm with each one of the `√n` chunck (`m = √n` => `(√n)² = n`) leading to `n` `√n` times (`n√n`).
+> Complexity:
+>
+> The algorithm divide the initial stack to `√n` bucket with `√n` capacity and perform a `m²` algorithm with each one of the `√n` chunck (`m = √n` => `(√n)² = n`) leading to `n` `√n` times (`n√n`).
+>
 
 ---
 
 #### 3. Complex Strategy — `O(n log n)`
 
 * Algorithm used: `Radix sort`
-* Bit / partition logic: `push to b every node with 0 in the specified bit, starting with the LSD`
-* Why suitable for large inputs: `loop at most 32 times ( sizeof(int) * 8 ) through a`
+* Bit / partition logic: `push` to `b` every node with `0` in the specified `bit`, starting with the `LSD`
+* Why suitable for large inputs: loop at most `32` times ( `sizeof(int) * 8` ) through `a`
 
   1. The algorithm check the bit of each node's value from `LSD` to `MSD` and push every node who have a bit`0` in the checked position, taking exactly `n` operation.
   2. When every node in `a` are checked, return every node in `b` to a, taking at most `n` operation.
   3. The process above are repeated at most `32` times.
 
-As the value taken by this algorithm are between `-2147483648` and `2147483647`, who are represented at most by 32 bit. In the case when every possible value are given, we have `n = 2 * 2147483647`, equal to `4294967294` then we have `log 4294967294 = 32`. In sum, in the worst case scenario (n = `4294967294`), we perform `n` `push` or `rotate`, plus `n` `push` to `a`, and we repeat that process in `log 4294967294` times. We execute then `2n log n` operation, noted `O(n log n)`.
-
----
-
-#### 4. Special case strategy
-
-* Principle: `if the number of node are less than 3, we use a pre-conceved set of operation`
-* Limitations: `work only for a very few input case`
+> Complexity:
+>
+> As the value taken by this algorithm are between `-2147483648` and `2147483647`, which are represented at most by 32 bit. In the case when every possible value are given, we have `n = 2 * 2147483647`, equal to `4294967294` then we have `log2 4294967294 = 32`. In sum, in the worst case scenario (n = `4294967294`), we perform `n` `push` or `rotate`, plus `n` `push` to `a`, and we repeat that process in `log2 4294967294` times. We execute then `2n log2 n` operation, noted `O(n log n)`.
+>
 
 ---
 
@@ -137,9 +151,24 @@ The program computes disorder and dynamically selects the most appropriate inter
 
 | Disorder Range | Strategy Used | Complexity   |
 | -------------- | ------------- | ------------ |
-| `< 0.2`        | `Extraction`  | `O(n²)`      |
-| `0.2–0.5`      | `Bucket sort` | `O(n√n)`     |
-| `≥ 0.5`        | `Radix sort`  | `O(n log n)` |
+| `< 0.2`        | Extraction    | `O(n²)`      |
+| `0.2–0.5`      | Bucket sort   | `O(n√n)`     |
+| `≥ 0.5`        | Radix sort    | `O(n log n)` |
+
+---
+
+#### 5. Special case strategy
+
+* Principle: if the number of node are fewer or equal to `3`, we use a predefined set of operation.
+* Goal: limit the maximum number of operation to `3` for a input of `3` numbers.
+* Limitations: work only for a very few input case.
+
+---
+
+#### 6. Operation sequence optimization
+
+* Principle: removes consecutive operations that cancel each other out (e.g., `pa` followed by `pb`).
+* Example: `ra` `ra` `pb` `pa` `rra` `sa` become `ra` `sa`
 
 ---
 

@@ -182,8 +182,8 @@ The program computes disorder and dynamically selects the most appropriate inter
 
 #### 5. Special case strategy
 
-* Principle: if the number of node are fewer or equal to `3`, we use a predefined set of operation.
-* Goal: limit the maximum number of operation to `3` for a input of `3` numbers.
+* Principle: if the number of node are fewer or equal to `5`, we use a predefined set of operation.
+* Goal: limit the maximum number of operation to `3` for an input of `3` numbers and to `10` for an input of `5` or fewer numbers.
 * Limitations: work only for a very few input case.
 
 ---

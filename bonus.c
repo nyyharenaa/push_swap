@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 06:07:41 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/30 15:38:11 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/30 15:58:12 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@ int	main(int ac, char **av)
 		funclst = parse_input(input);
 		execute_funclst(funclst, &st_a, &st_b);
 		ft_lstclear(&funclst, NULL);
-		free(input);
-		input = get_next_line(0);
+		input = (free(input), get_next_line(0));
 	}
 	if (is_sorted(st_a))
 		ft_dprintf(1, "OK\n");

@@ -48,13 +48,13 @@ all: $(NAME) bonus
 
 bonus: $(CHECKER)
 
-$(NAME): $(PS_SRCS) $(LIBFT)
+$(NAME): $(PS_SRCS) $(LIBFT) Makefile
 	$(CC) $(CFLAGS) $(PS_SRCS) -o $@ $(INCLUDE:%=-I%) -Llibft -lft
 
-$(CHECKER): $(CH_SRCS) $(LIBFT)
+$(CHECKER): $(CH_SRCS) $(LIBFT) Makefile
 	$(CC) $(CFLAGS) $(CH_SRCS) -o $@ $(INCLUDE:%=-I%) -Llibft -lft
 
-$(LIBFT):
+$(LIBFT): Makefile
 	$(MAKE) -C libft libft.a
 
 clean:

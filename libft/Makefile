@@ -67,7 +67,7 @@ OBJS = $(SRCS:.c=.o)
 $(NAME): $(OBJS) $(ST_LIBS)
 	$(AR) $(NAME) $(OBJS)
 
-%.o: %.c $(DEPS)
+%.o: %.c $(DEPS) Makefile
 	$(CC) $(CFLAGS) -c $< -o $@ -I.
 
 all: $(NAME)

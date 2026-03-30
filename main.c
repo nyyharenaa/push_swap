@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:30:04 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/27 11:40:06 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/30 09:21:47 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static t_list	*execute_algo(t_stack *st_a, t_stack *st_b, int optflag)
 	t_list	*oplst;
 
 	oplst = NULL;
-	if (st_a->size <= 3)
+	if (st_a->size <= 5)
 		oplst = al_special_case(st_a, st_b);
 	else if (opt_get_complexity(optflag) == CMPLX_SQRN)
 		oplst = al_simple(st_a, st_b);

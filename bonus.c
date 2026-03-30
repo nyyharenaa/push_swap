@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 06:07:41 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/27 14:52:24 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/30 15:38:11 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	main(int ac, char **av)
 		ft_dprintf(1, "OK\n");
 	else
 		ft_dprintf(1, "KO\n");
+	st_clear(&st_a);
 	return (0);
 }
 

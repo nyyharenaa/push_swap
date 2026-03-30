@@ -317,6 +317,7 @@ The `checker` program:
 * Algorithm complexity documentation: [wikipedia - sorting algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm)
 * Simple algorithm documentation: [wikipedia - selection sort](https://en.wikipedia.org/wiki/Selection_sort)
 * Bucket sort documentation: [wikipedia - bucket sort](https://en.wikipedia.org/wiki/Bucket_sort)
+* Radix sort documentation: [w3school -DSA radix sort](https://www.w3schools.com/dsa/dsa_algo_radixsort.php)
 
 #### AI Usage
 

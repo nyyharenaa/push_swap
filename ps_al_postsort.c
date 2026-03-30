@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_al_postsort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ny-handr <ny-handr@student.42antananari    +#+  +:+       +#+        */
+/*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 03:54:40 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/24 12:19:30 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/30 15:00:56 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,15 @@ void	optim_oplst(t_list *oplst)
 
 static int	is_inverse(t_list *a, t_list *b)
 {
-	if (!ft_strncmp(a->content, "sa", 2) && !ft_strncmp(b->content, "sa", 3))
+	if (!ft_strncmp(a->content, "sa", 2) && !ft_strncmp(b->content, "sa", 2))
 		return (1);
-	if (!ft_strncmp(a->content, "sb", 2) && !ft_strncmp(b->content, "sb", 3))
+	if (!ft_strncmp(a->content, "sb", 2) && !ft_strncmp(b->content, "sb", 2))
 		return (1);
 	if (!ft_strncmp(a->content, "ra", 2) && !ft_strncmp(b->content, "rra", 3))
 		return (1);
 	if (!ft_strncmp(a->content, "rb", 2) && !ft_strncmp(b->content, "rrb", 3))
+		return (1);
+	if (!ft_strncmp(a->content, "rr", 3) && !ft_strncmp(b->content, "rrr", 3))
 		return (1);
 	if (!ft_strncmp(a->content, "pa", 2) && !ft_strncmp(b->content, "pb", 2))
 		return (1);

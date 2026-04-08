@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 08:30:58 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/30 15:27:58 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/04/08 08:09:50 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static void	push_min(t_stack *st_a, t_stack *st_b, t_list **oplst)
 		while (min_index-- > 0)
 			ra(st_a, st_b, oplst);
 	else
-		while (++min_index < (int)(st_a->size))
+		while (++min_index <= (int)(st_a->size))
 			rra(st_a, st_b, oplst);
 	pb(st_a, st_b, oplst);
 }

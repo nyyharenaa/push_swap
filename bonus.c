@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 06:07:41 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/30 15:58:12 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/04/08 08:07:22 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ static int	parse_stack(char **av, t_stack *st)
 	flaglst = NULL;
 	*st = create_stack();
 	valid = get_datalst(av, &arglst, &flaglst);
-	valid = valid & check_flag(flaglst);
-	valid = valid & check_arg(arglst);
-	if (valid && (flaglst == NULL))
+	valid = valid && check_arg(arglst);
+	valid = valid && (flaglst == NULL);
+	if (valid)
 	{
 		fill_stack(st, arglst);
 		sttmp = normalize(*st);
@@ -70,7 +70,7 @@ static int	parse_stack(char **av, t_stack *st)
 		ft_dprintf(2, "Error\n");
 	ft_lstclear(&flaglst, free);
 	ft_lstclear(&arglst, free);
-	return (valid && (flaglst == NULL));
+	return (valid);
 }
 
 static int	execute_funclst(t_list *funclst, t_stack *st_a, t_stack *st_b)
